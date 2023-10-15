@@ -1,113 +1,141 @@
-import Image from 'next/image'
+'use client';
+import clsx from 'clsx';
+import Head from 'next/head';
+import * as React from 'react';
+import useLoaded from '@/hooks/useLoaded';
+import TC from '@/app/components/TC';
+import Accent from '@/app/components/Accent';
+import ButtonLink from '@/components/links/ButtonLink';
+import { InView } from 'react-intersection-observer';
 
-export default function Home() {
+export default function HomePage() {
+  const isLoaded = useLoaded();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main>
+      <Head>
+        <title>Hi</title>
+      </Head>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section
+        className={clsx(
+          ' min-h-main -mt-20 mb-10 flex flex-col justify-center',
+          isLoaded && 'fade-in-start'
+        )}
+      >
+        <section className=' relative'>
+          <div className='layout mt-4 flex min-h-screen flex-col py-1'>
+            <h1
+              className='text-white md:mt-40 md:text-5xl md:leading-snug'
+              data-fade='2'
+            >
+              Turning Knowledge into Wealth.. <br /> Your Success.. <br /> Our
+              Expertise!
+            </h1>
+            <p
+              className={clsx(
+                'mt-4 max-w-4xl text-left text-white md:mt-10',
+                'md:text-lg 2xl:text-xl'
+              )}
+              data-fade='3'
+            >
+              Empowering individuals with knowledge and tech solutions to
+              navigate tomorrow's world.
+            </p>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <ButtonLink
+              className='hover:bg-dark w-64 border border-amber-400 bg-amber-400 py-2 text-center text-white focus:outline-none md:mt-20'
+              href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/src/styles/colors.css'
+            >
+              Check for Courses
+            </ButtonLink>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            {/* <TC
+              className={clsx(
+                'absolute bottom-0 right-6',
+                'translate-y-[37%] transform-gpu',
+                'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
+                'z-[1] opacity-70 dark:opacity-30'
+              )}
+            /> */}
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+          <InView triggerOnce rootMargin='-40% 0px'>
+            {({ ref, inView }) => (
+              <section
+                ref={ref}
+                id='intro'
+                className={clsx('mt-[-70px] py-10', inView && 'fade-in-start')}
+              >
+                <article
+                  className={clsx(
+                    'layout flex flex-col-reverse items-center md:flex-row md:justify-start',
+                    'md:gap-4'
+                  )}
+                  data-fade='0'
+                >
+                  <div className='mt-8 mt-[-100px] h-full w-full py-40 md:mt-0'>
+                    <h2 className='text-4xl md:text-6xl'>
+                      <Accent className='inline decoration-clone leading-snug dark:leading-none'>
+                        Elevate Your Journey with Our Range of Services{' '}
+                      </Accent>
+                    </h2>
+                    <div className='mt-4 text-base text-gray-100 md:text-lg'>
+                 
+                      At <span>Moon Education Center </span>  our team of dedicated educators and experts is here to
+                      guide you on your path to
+                      <strong className='text-gray-100 '>
+                        financial success.
+                      </strong>
+                      We are committed to making knowledge accessible to all,
+                      offering a wide range of resources and training to help
+                      you harness the potential of new technologies and
+                      industries. Explore our services to unlock opportunities
+                      and turn your dreams into reality.
+                    </div>
+                  </div>
+                  <div className='h-full w-full'>
+                    <ul className='relative h-full'>imageimage image </ul>
+                  </div>
+                </article>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+                <article
+                  className={clsx(
+                    'layout flex flex-col-reverse items-center md:flex-row md:justify-start',
+                    'md:gap-4'
+                  )}
+                  data-fade='0'
+                >
+                  <div className='h-full w-full'>
+                    <ul className='relative h-full'>imageimage image </ul>
+                  </div>
+                  <div className='mt-8 h-full w-full md:mt-0'>
+                    <h2 className='text-4xl md:text-6xl'>
+                      <Accent className='inline decoration-clone leading-snug dark:leading-none'>
+                        Discover Our Resources and Expertise
+                      </Accent>
+                    </h2>
+                    <div className='mt-4 text-base text-gray-100 md:text-lg'>
+
+                      At <span>Moon Education Center </span>we take pride in what we have to offer. Our arsenal
+                      comprises a
+                      <strong className='text-gray-100 '>
+                        a wealth of valuable resources and a team of seasoned
+                        experts
+                      </strong>
+                      who are dedicated to your success. We've curated a
+                      comprehensive collection of tools, knowledge, and support
+                      to empower you in navigating the ever-evolving landscape
+                      of opportunities. Delve into what we have to offer and
+                      turn your aspirations into achievements.
+                    </div>
+                  </div>
+                </article>
+              </section>
+            )}
+          </InView>
+        </section>
+      </section>
     </main>
-  )
+  );
 }
