@@ -3,8 +3,6 @@ import React from 'react';
 import clsx from 'clsx';
 import YoutubeVideo from '@/app/components/YoutubeVideo';
 import useLoaded from '@/hooks/useLoaded';
-import Accent from '@/app/components/Accent';
-import Button from '@/components/buttons/Button';
 
 export default function CourseDetails() {
   const isLoaded = useLoaded();
@@ -124,7 +122,6 @@ export default function CourseDetails() {
                       <path d='M0 0h16v16H0z' fill='none' />
                       <path d='M8 0a.5.5 0 0 1 .5.5V14a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z' />
                       <path
-                        fill-rule='evenodd'
                         d='M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 2.207 2.354 7.854a.5.5 0 1 1-.708-.708l6-6z'
                       />
                     </svg>
@@ -151,7 +148,6 @@ export default function CourseDetails() {
                       <path d='M0 0h16v16H0z' fill='none' />
                       <path d='M8 0a.5.5 0 0 1 .5.5V14a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z' />
                       <path
-                        fill-rule='evenodd'
                         d='M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 2.207 2.354 7.854a.5.5 0 1 1-.708-.708l6-6z'
                       />
                     </svg>
@@ -178,7 +174,6 @@ export default function CourseDetails() {
                       <path d='M0 0h16v16H0z' fill='none' />
                       <path d='M8 0a.5.5 0 0 1 .5.5V14a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z' />
                       <path
-                        fill-rule='evenodd'
                         d='M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 2.207 2.354 7.854a.5.5 0 1 1-.708-.708l6-6z'
                       />
                     </svg>
@@ -204,7 +199,6 @@ export default function CourseDetails() {
                       <path d='M0 0h16v16H0z' fill='none' />
                       <path d='M8 0a.5.5 0 0 1 .5.5V14a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z' />
                       <path
-                        fill-rule='evenodd'
                         d='M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 2.207 2.354 7.854a.5.5 0 1 1-.708-.708l6-6z'
                       />
                     </svg>

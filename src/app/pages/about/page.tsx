@@ -1,32 +1,18 @@
-'use client';
 import clsx from 'clsx';
-import Head from 'next/head';
 import * as React from 'react';
 import useLoaded from '@/hooks/useLoaded';
-import TC from '@/app/components/TC';
-import Accent from '@/app/components/Accent';
-import ButtonLink from '@/components/links/ButtonLink';
-import { InView } from 'react-intersection-observer';
 import Vision from '@/app/pages/about/vision';
 import Mission from '@/app/pages/about/mission';
 import TeamList from '@/app/pages/about/TeamList';
 
 export default function AboutPage() {
-  const isLoaded = useLoaded();
 
   return (
     <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
 
-      <section
-        className={clsx(
-          ' min-h-main -mt-20 mb-10 flex flex-col justify-center',
-          isLoaded && 'fade-in-start'
-        )}
-      >
+
         <section className=' relative'>
+          
           <div className='layout mt-4 flex min-h-screen flex-col py-1'>
             <h1
               className='text-white md:mt-40 md:text-5xl md:leading-snug'
@@ -60,7 +46,6 @@ export default function AboutPage() {
             <TeamList />
           </div>
         </section>
-      </section>
     </main>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 import clsx from 'clsx';
-import Head from 'next/head';
 import * as React from 'react';
 import useLoaded from '@/hooks/useLoaded';
 import TC from '@/app/components/TC';
@@ -13,11 +12,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
-
-      <section
+   <section
         className={clsx(
           ' min-h-main -mt-20 mb-10 flex flex-col justify-center',
           isLoaded && 'fade-in-start'
