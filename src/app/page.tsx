@@ -6,12 +6,17 @@ import TC from '@/app/components/TC';
 import Accent from '@/app/components/Accent';
 import ButtonLink from '@/components/links/ButtonLink';
 import { InView } from 'react-intersection-observer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+
 
 export default function HomePage() {
   const isLoaded = useLoaded();
 
   return (
     <main>
+            <Header/>
+
    <section
         className={clsx(
           ' min-h-main -mt-20 mb-10 flex flex-col justify-center',
@@ -131,6 +136,8 @@ export default function HomePage() {
           </InView>
         </section>
       </section>
+      <Footer/>
+
     </main>
   );
 }

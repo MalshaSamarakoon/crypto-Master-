@@ -1,13 +1,15 @@
 "use client";
-
+import clsx from 'clsx';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminLayout from "../../components/AdminLayout";
+import { Sidebar } from "lucide-react";
+import useLoaded from '@/hooks/useLoaded';
 
 export default function AddTeam() {
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const isLoaded = useLoaded();
 
   const router = useRouter();
 
@@ -39,7 +41,16 @@ export default function AddTeam() {
   };
 
   return (
-    <AdminLayout>
+    <main>
+
+   <section
+        className={clsx(
+          ' min-h-main -mt-20 mb-10 flex flex-col justify-center',
+          isLoaded && 'fade-in-start'
+        )}
+      >
+        <section className=' relative'>
+      
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input
           onChange={(e) => setName(e.target.value)}
@@ -72,6 +83,9 @@ export default function AddTeam() {
           Add Member
         </button>
       </form>
-    </AdminLayout>
+      </section>
+      </section>
+
+    </main>
   );
 }
