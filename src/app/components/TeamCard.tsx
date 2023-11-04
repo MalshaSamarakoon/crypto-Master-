@@ -2,7 +2,7 @@ import React from "react";
 
 const getteams = async () => {
   try {
-    const res = await fetch("http://localhost:3001/api/teams", {
+    const res = await fetch("http://localhost:3000/api/teams", {
       cache: "no-store",
     });
 
@@ -17,7 +17,7 @@ const getteams = async () => {
 };
 
 export default async function TeamCard() {
-  const { teams } = await getteams();
+  const { teams } = await getteams() || {};
 
   return (
     <>

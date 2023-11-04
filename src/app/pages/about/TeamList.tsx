@@ -1,3 +1,7 @@
+
+
+
+
 import React from "react";
 import TeamCard from "@/app/components/TeamCard";
 
@@ -17,3 +21,4 @@ export default function TeamList() {
     </div>
   );
 }
+
