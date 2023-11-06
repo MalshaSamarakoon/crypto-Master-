@@ -26,7 +26,7 @@ export default function AdHeader({ large = false }: HeaderProps) {
   return (
     <header
       className={clsx(
-        " sticky top-0 z-50 transition-shadow",
+        " sticky top-0 z-50 transition-shadow shadow-md",
         !onTop && "shadow-md"
       )}
     >
@@ -55,7 +55,8 @@ export default function AdHeader({ large = false }: HeaderProps) {
           )}
         >
           <div className="flex items-center">
-            <Image src="/images/Logo.PNG" alt="Logo" width={40} height={40} />
+            {/* <Image src="/images/Logo.PNG" alt="Logo" width={40} height={40} /> */}
+            {/* MOON EDUCAION CENTER */}
           </div>
 
           <ul className="flex items-center space-x-3 text-xs md:space-x-10 md:text-base">
