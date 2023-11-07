@@ -45,9 +45,9 @@ export default function AdHeader({ large = false }: HeaderProps) {
         <Accent>Skip to main content</Accent>
       </a>
 
-      <div className="from-primary-200 via-primary-300 to-primary-400 h-2 bg-gradient-to-tr" />
+      <div className="from-primary-200 via-primary-300 to-primary-400 h-2 bg-white" />
 
-      <div className="bg-white bg-opacity-50">
+      <div className="bg-white ">
         <nav
           className={clsx(
             "layout flex items-center justify-between py-4",

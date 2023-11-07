@@ -1,27 +1,45 @@
-'use client';
 import React from 'react';
-import clsx from 'clsx';
 import YoutubeVideo from '@/app/components/YoutubeVideo';
-import useLoaded from '@/hooks/useLoaded';
 
-export default function CourseDetails() {
-  const isLoaded = useLoaded();
+
+const getcourses = async () => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/courses/`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch courses");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log("Error loading courses: ", error);
+  }
+};
+
+
+
+export default async function CourseDetails() {
+  const { courses } = await getcourses() || {};
+
 
   return (
+    <>
+      {courses.map((m: any) => (
+        <div
+          key={m._id}  
+        >
     <main>
       <section
-        className={clsx(
-          ' min-h-main flex flex-col justify-center',
-          isLoaded && 'fade-in-start'
-        )}
-      >
+        className='min-h-main flex flex-col justify-center'>
         <section className=' relative'>
           <div className='layout flex min-h-screen flex-col py-1'>
             <h1
               className='mb-20 text-white md:mt-40 md:text-5xl md:leading-snug'
               data-fade='2'
             >
-              Crypto Master A-Z Course
+              {m.title}
             </h1>
             <div className=' mb-20 grid grid-cols-2 gap-80'>
               <div className=' col-span-1 mt-10 text-xl leading-relaxed text-gray-200 opacity-80 md:text-lg'>
@@ -211,5 +229,8 @@ export default function CourseDetails() {
         </section>
       </section>
     </main>
+    </div>
+      ))}
+    </>
   );
 }

@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useLoaded from "@/hooks/useLoaded";
-import Sidebar from "../components/Sidebar";
 
 export default function AddTeam() {
   // console.log("HI")
@@ -45,18 +44,14 @@ export default function AddTeam() {
   return (
     <>
     <main style={{ backgroundColor: "white" }}>
-
-
-      <div className="container mx-auto px-4">
+      <div className=" p-40 sm:ml-64 "> 
         <section
           className={clsx(
-            " min-h-main -mt-20 flex flex-col justify-center",
+            "min-h-main -mt-20 flex flex-col justify-center",
             isLoaded && "fade-in-start"
           )}
         >
-          
-          <section className=" relative">
-
+          <section className="relative">
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
               <label className="block text-sm font-medium text-dark">
