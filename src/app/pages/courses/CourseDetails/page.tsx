@@ -79,25 +79,8 @@ export default function CourseDetails() {
   
                   <ul className='prose dark:prose-invert mt-10 text-gray-200'>
                     <li className='text-1xl mb-2'>
-                      Introduction to cryptocurrency
+                    {courseDetails.courseContent}
                     </li>
-                    <li className='text-1xl mb-2'>How to make your charts</li>
-                    <li className='text-1xl mb-2'>
-                      How to use indicators in charts
-                    </li>
-                    <li className='text-1xl mb-2'>Indicators deep dive</li>
-                    <li className='text-1xl mb-2'>
-                      How to use tools in charts (Fibonacci Retracement and Fib
-                      Circles / Elliott Wave)
-                    </li>
-                    <li className='text-1xl mb-2'>Trading patterns deep dive</li>
-                    <li className='text-1xl mb-2'>Overview of Binance</li>
-                    <li className='text-1xl mb-2'>Spot trading</li>
-                    <li className='text-1xl mb-2'>Futures trading</li>
-                    <li className='text-1xl mb-2'>Millionaire making coins</li>
-                    <li className='text-1xl mb-2'>Metaverse Projects</li>
-                    <li className='text-1xl mb-2'>SMC concepts</li>
-                    <li className='text-1xl mb-2'>Risk Management</li>
                   </ul>
                 </div>
               </div>
@@ -127,8 +110,7 @@ export default function CourseDetails() {
                         />
                       </svg>
                     </span>
-                    Get extra practice sessions and learn technical analysis
-                    skills for various financial markets.
+                    {courseDetails.information}
                   </p>
                   <p
                     className='mb-5'
@@ -204,7 +186,7 @@ export default function CourseDetails() {
                         />
                       </svg>
                     </span>
-                    Continuous support from Moon Education for your questions.{' '}
+                    Continuous support from Moon Education for your questions.
                   </p>
                 </div>
               </div>

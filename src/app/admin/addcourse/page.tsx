@@ -7,60 +7,77 @@ import useLoaded from "@/hooks/useLoaded";
 export default function AddTeam() {
   // console.log("HI")
 
-  const [mode, setMode] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [duration, setDuration] = useState("");
-  const [priceDescription, setPriceDescription] = useState("");
-
-  const isLoaded = useLoaded();
-
-  const router = useRouter();
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
-    if (
-      !mode ||
-      !title ||
-      !description ||
-      !courseDescription ||
-      !price ||
-      !duration ||
-      !priceDescription
-    ) {
-      alert("All details are required.");
-      return;
-    }
-
-    try {
-      const res = await fetch("http://localhost:3000/api/courses", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          mode,
-          title,
-          description,
-          courseDescription,
-          price,
-          duration,
-          priceDescription,
-        }),
-      });
-
-      if (res.ok) {
-        router.push("/");
-      } else {
-        throw new Error("Failed to create a course");
+    const [mode, setMode] = useState("");
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [courseDescription, setCourseDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [duration, setDuration] = useState("");
+    const [priceDescription, setPriceDescription] = useState("");
+    const [courseContentItems, setCourseContentItems] = useState([]);
+    const [newContentItem, setNewContentItem] = useState("");
+    const [information, setInformation] = useState("");
+  
+    const addContentItem = () => {
+      if (newContentItem.trim() !== "") {
+        setCourseContentItems([...courseContentItems, newContentItem]);
+        setNewContentItem("");
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
+  
+    const removeContentItem = (index) => {
+      const updatedItems = [...courseContentItems];
+      updatedItems.splice(index, 1);
+      setCourseContentItems(updatedItems);
+    };
+  
+    const isLoaded = useLoaded();
+    const router = useRouter();
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      if (
+        !mode ||
+        !title ||
+        !description ||
+        !courseDescription ||
+        !price ||
+        !duration
+      ) {
+        alert("All details are required.");
+        return;
+      }
+  
+      try {
+        const res = await fetch("http://localhost:3000/api/courses", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            mode,
+            title,
+            description,
+            courseDescription,
+            price,
+            duration,
+            priceDescription,
+            courseContent: courseContentItems, // Use the array here
+            information,
+          }),
+        });
+  
+        if (res.ok) {
+          router.push("/");
+        } else {
+          throw new Error("Failed to create a course");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
 
   return (
     <>
@@ -77,7 +94,6 @@ export default function AddTeam() {
                 <div className=" py-10 ">
                   <h1 className=" "> Add Details for Course Card </h1>
                 </div>
-
                 <label className="block text-sm font-medium text-dark">
                   Mode
                 </label>
@@ -98,7 +114,6 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Title"
                 />
-
                 <label className="block text-sm font-medium text-dark">
                   Description
                 </label>
@@ -109,7 +124,6 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Member Description"
                 />
-
                 <div>
                   <label className="block text-sm font-medium text-dark">
                     Image
@@ -152,15 +166,12 @@ export default function AddTeam() {
                     </div>
                   </div>
                 </div>
-
                 <div className=" py-10 ">
                   <h1 className=" "> Add Details for Course Page </h1>
                 </div>
-
                 <label className="block text-sm font-medium text-dark">
                   Course Description
                 </label>
-
                 <textarea
                   onChange={(e) => setCourseDescription(e.target.value)}
                   value={courseDescription}
@@ -169,7 +180,6 @@ export default function AddTeam() {
                   rows={4}
                   cols={50}
                 />
-
                 <label className="block text-sm font-medium text-dark">
                   Price
                 </label>
@@ -180,7 +190,16 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Price"
                 />
-
+                <label className="block text-sm font-medium text-dark">
+                  Price Description
+                </label>
+                <input
+                  onChange={(e) => setPriceDescription(e.target.value)}
+                  value={priceDescription}
+                  className="border border-slate-500 px-8 py-2"
+                  type="text"
+                  placeholder="Price Description"
+                />
                 <label className="block text-sm font-medium text-dark">
                   Duration
                 </label>
@@ -191,18 +210,51 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Course Duration"
                 />
+                <label className="block text-sm font-medium text-dark">
+                  Course Content
+                </label>
+                <div>
+                  {courseContentItems.map((item, index) => (
+                    <div key={index} className="flex items-center mb-2">
+                      <p className="mr-2">{item}</p>
+                      <button
+                        type="button"
+                        onClick={() => removeContentItem(index)}
+                        className="text-red-500"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex">
+                  <input
+                    type="text"
+                    value={newContentItem}
+                    onChange={(e) => setNewContentItem(e.target.value)}
+                    className="border border-slate-500 px-8 py-2"
+                    placeholder="New Content Item"
+                  />
+                  <button
+                    type="button"
+                    onClick={addContentItem}
+                    className="ml-2 h-10 px-4 bg-amber-500 text-white rounded-md"
+                  >
+                    Add
+                  </button>
+                </div>
 
                 <label className="block text-sm font-medium text-dark">
-                  Price Description
+                  Aditional Information
                 </label>
-                <input
-                  onChange={(e) => setPriceDescription(e.target.value)}
-                  value={priceDescription}
+                <textarea
+                  onChange={(e) => setInformation(e.target.value)}
+                  value={information}
                   className="border border-slate-500 px-8 py-2"
-                  type="text"
-                  placeholder=" Price Description"
+                  placeholder=" Additional Information"
+                  rows={4}
+                  cols={50}
                 />
-
                 <button
                   type="submit"
                   className="h-12 w-80  rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"

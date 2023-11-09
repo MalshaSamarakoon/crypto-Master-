@@ -8,7 +8,9 @@ const courseSchema = new Schema(
     courseDescription: String,
     price: String,
     duration: String,
-    priceDescription: String
+    priceDescription: String,
+    courseContent: [String],
+    information: String
   },
   {
     timestamps: true,

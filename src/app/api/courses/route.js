@@ -3,9 +3,35 @@ import Course from "../../../models/course";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const { mode, title, description, courseDescription, price, duration, priceDescription } = await request.json();
+  const {
+    mode,
+    title,
+    description,
+    courseDescription,
+    price,
+    duration,
+    priceDescription,
+    courseContent,
+    information,
+  } = await request.json();
+
   await connectMongoDB();
-  await Course.create({ mode, title, description, courseDescription, price, duration, priceDescription });
+
+  const courseContentArray = Array.isArray(courseContent)
+    ? courseContent
+    : [courseContent];
+
+  await Course.create({
+    mode,
+    title,
+    description,
+    courseDescription,
+    price,
+    duration,
+    priceDescription,
+    courseContent: courseContentArray,
+    information,
+  });
   return NextResponse.json({ message: "Course Created" }, { status: 201 });
 }
 

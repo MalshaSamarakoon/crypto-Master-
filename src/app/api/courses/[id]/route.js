@@ -4,9 +4,30 @@ import { NextResponse } from "next/server";
 
 export async function PUT(request, { params }) {
   const { id } = params;
-  const { newMode: mode, newTitle: title, newDescription: description, newCourseDescription: courseDescription, newPrice: price, newDuration: duration, newPriceDescription: priceDescription } = await request.json();
+  const {
+    newMode: mode,
+    newTitle: title,
+    newDescription: description,
+    newCourseDescription: courseDescription,
+    newPrice: price,
+    newDuration: duration,
+    newPriceDescription: priceDescription,
+    newCourseContent: courseContentItems,
+    newInformation: information,
+  } = await request.json();
+
   await connectMongoDB();
-  await Course.findByIdAndUpdate(id, { mode, title, description, courseDescription, price, duration, priceDescription });
+  await Course.findByIdAndUpdate(id, {
+    mode,
+    title,
+    description,
+    courseDescription,
+    price,
+    duration,
+    priceDescription,
+    courseContent: courseContentItems, 
+    information
+  });
   return NextResponse.json({ message: "Course updated" }, { status: 200 });
 }
 
