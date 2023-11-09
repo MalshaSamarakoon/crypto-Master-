@@ -21,6 +21,10 @@ export async function POST(request) {
     ? courseContent
     : [courseContent];
 
+    const informationArray = Array.isArray(information)
+    ? information
+    : [information];
+
   await Course.create({
     mode,
     title,
@@ -30,7 +34,7 @@ export async function POST(request) {
     duration,
     priceDescription,
     courseContent: courseContentArray,
-    information,
+    information: informationArray,
   });
   return NextResponse.json({ message: "Course Created" }, { status: 201 });
 }

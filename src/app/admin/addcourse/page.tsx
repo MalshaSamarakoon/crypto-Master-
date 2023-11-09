@@ -7,77 +7,90 @@ import useLoaded from "@/hooks/useLoaded";
 export default function AddTeam() {
   // console.log("HI")
 
-    const [mode, setMode] = useState("");
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [courseDescription, setCourseDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [duration, setDuration] = useState("");
-    const [priceDescription, setPriceDescription] = useState("");
-    const [courseContentItems, setCourseContentItems] = useState([]);
-    const [newContentItem, setNewContentItem] = useState("");
-    const [information, setInformation] = useState("");
-  
-    const addContentItem = () => {
-      if (newContentItem.trim() !== "") {
-        setCourseContentItems([...courseContentItems, newContentItem]);
-        setNewContentItem("");
+  const [mode, setMode] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
+  const [priceDescription, setPriceDescription] = useState("");
+  const [courseContentItems, setCourseContentItems] = useState([]);
+  const [newContentItem, setNewContentItem] = useState("");
+  const [informationItems, setInformationItems] = useState([]);
+  const [newInformationItem, setNewInformationItem] = useState("");
+
+  const addContentItem = () => {
+    if (newContentItem.trim() !== "") {
+      setCourseContentItems([...courseContentItems, newContentItem]);
+      setNewContentItem("");
+    }
+  };
+
+  const removeContentItem = (index) => {
+    const updatedItems = [...courseContentItems];
+    updatedItems.splice(index, 1);
+    setCourseContentItems(updatedItems);
+  };
+
+  const addInformationItem = () => {
+    if (newInformationItem.trim() !== "") {
+      setInformationItems([...informationItems, newInformationItem]);
+      setNewInformationItem("");
+    }
+  };
+
+  const removeInformationItem = (index) => {
+    const updatedItems = [...informationItems];
+    updatedItems.splice(index, 1);
+    setInformationItems(updatedItems);
+  };
+
+  const isLoaded = useLoaded();
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      !mode ||
+      !title ||
+      !description ||
+      !courseDescription ||
+      !price ||
+      !duration
+    ) {
+      alert("All details are required.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/api/courses", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          mode,
+          title,
+          description,
+          courseDescription,
+          price,
+          duration,
+          priceDescription,
+          courseContent: courseContentItems,
+          information: informationItems,
+        }),
+      });
+
+      if (res.ok) {
+        router.push("/");
+      } else {
+        throw new Error("Failed to create a course");
       }
-    };
-  
-    const removeContentItem = (index) => {
-      const updatedItems = [...courseContentItems];
-      updatedItems.splice(index, 1);
-      setCourseContentItems(updatedItems);
-    };
-  
-    const isLoaded = useLoaded();
-    const router = useRouter();
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      if (
-        !mode ||
-        !title ||
-        !description ||
-        !courseDescription ||
-        !price ||
-        !duration
-      ) {
-        alert("All details are required.");
-        return;
-      }
-  
-      try {
-        const res = await fetch("http://localhost:3000/api/courses", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            mode,
-            title,
-            description,
-            courseDescription,
-            price,
-            duration,
-            priceDescription,
-            courseContent: courseContentItems, // Use the array here
-            information,
-          }),
-        });
-  
-        if (res.ok) {
-          router.push("/");
-        } else {
-          throw new Error("Failed to create a course");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -247,14 +260,37 @@ export default function AddTeam() {
                 <label className="block text-sm font-medium text-dark">
                   Aditional Information
                 </label>
-                <textarea
-                  onChange={(e) => setInformation(e.target.value)}
-                  value={information}
-                  className="border border-slate-500 px-8 py-2"
-                  placeholder=" Additional Information"
-                  rows={4}
-                  cols={50}
-                />
+                <div>
+                  {informationItems.map((item, index) => (
+                    <div key={index} className="flex items-center mb-2">
+                      <p className="mr-2">{item}</p>
+                      <button
+                        type="button"
+                        onClick={() => removeInformationItem(index)}
+                        className="text-red-500"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex">
+                  <input
+                    type="text"
+                    value={newInformationItem}
+                    onChange={(e) => setNewInformationItem(e.target.value)}
+                    className="border border-slate-500 px-8 py-2"
+                    placeholder="New Information Item"
+                  />
+                  <button
+                    type="button"
+                    onClick={addInformationItem}
+                    className="ml-2 h-10 px-4 bg-amber-500 text-white rounded-md"
+                  >
+                    Add
+                  </button>
+                </div>
+
                 <button
                   type="submit"
                   className="h-12 w-80  rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"

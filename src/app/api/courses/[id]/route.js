@@ -13,7 +13,7 @@ export async function PUT(request, { params }) {
     newDuration: duration,
     newPriceDescription: priceDescription,
     newCourseContent: courseContentItems,
-    newInformation: information,
+    newInformation: informationItems,
   } = await request.json();
 
   await connectMongoDB();
@@ -26,7 +26,7 @@ export async function PUT(request, { params }) {
     duration,
     priceDescription,
     courseContent: courseContentItems, 
-    information
+    information: informationItems
   });
   return NextResponse.json({ message: "Course updated" }, { status: 200 });
 }
