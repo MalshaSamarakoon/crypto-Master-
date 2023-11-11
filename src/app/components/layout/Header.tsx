@@ -55,7 +55,6 @@ export default function Header({ large = false }: HeaderProps) {
       </a>
 
       {/* Gradient List */}
-      <div className='from-primary-200 via-primary-300 to-primary-400 h-2 bg-gradient-to-tr' />
 
       <div className='bg-dark'>
         <nav
@@ -67,7 +66,7 @@ export default function Header({ large = false }: HeaderProps) {
           <div className='flex items-center'>
             {' '}
             {/* Logo container */}
-            <Image src='/images/Logo.PNG' alt='Logo' width={40} height={40} />
+            <Image src='/images/Logo.PNG' alt='Logo' width={150} height={120} />
           </div>
 
           <ul className='flex items-center space-x-3 text-xs md:space-x-10 md:text-base'>
