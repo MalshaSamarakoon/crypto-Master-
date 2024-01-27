@@ -5,6 +5,7 @@ const teamSchema = new Schema(
     name: String,
     title: String,
     description: String,
+    image: String, 
   },
   {
     timestamps: true,
