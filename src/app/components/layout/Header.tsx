@@ -106,5 +106,5 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/pages/about', label: 'About' },
   { href: '/pages/courses', label: 'Courses' },
-  { href: '/pages/services', label: 'Services' },
+  { href: '/pages/services/', label: 'Services' },
 ];
