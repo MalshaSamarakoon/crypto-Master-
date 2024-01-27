@@ -5,10 +5,9 @@ import * as React from "react";
 export default function Sidebar() {
   return (
     <>
-
       <aside
         id="default-sidebar"
-        className="fixed top-15 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="fixed top-15 mt-10 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-20 overflow-y-auto bg-gray-50 dark:bg-gray-800">
@@ -31,7 +30,7 @@ export default function Sidebar() {
                 <span className="ml-3">Dashboard</span>
               </a>
             </li>
-           
+
             <li>
               <a
                 href="#"
@@ -109,12 +108,9 @@ export default function Sidebar() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Services</span>
               </a>
             </li>
-            
           </ul>
         </div>
       </aside>
-
-      
     </>
   );
 }
