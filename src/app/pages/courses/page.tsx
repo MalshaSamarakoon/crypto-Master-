@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as React from "react";
 import useLoaded from "@/hooks/useLoaded";
 import CourseList from "@/app/pages/courses/CourseList";
+import Seperator from "@/app/components/Seperator";
 
 export default function CoursesPage() {
 
@@ -12,14 +13,14 @@ export default function CoursesPage() {
 
       <section
         className={clsx(
-          " min-h-main -mt-20 mb-10 flex flex-col justify-center",
+          " min-h-main mb-10 flex flex-col justify-center",
          
         )}
       >
         <section className=" relative">
-          <div className="layout mt-4 flex min-h-screen flex-col py-1">
+          <div className="layout lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1">
             <h1
-              className="text-white md:mt-40 md:text-5xl md:leading-snug"
+              className="text-white md:text-5xl md:leading-snug"
               data-fade="2"
             >
               Our Courses
@@ -45,6 +46,7 @@ export default function CoursesPage() {
             <div className="mt-40">
               <CourseList />
             </div>
+            <Seperator />
           </div>
         </section>
       </section>
