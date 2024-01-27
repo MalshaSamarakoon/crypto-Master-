@@ -1,0 +1,64 @@
+/* FeedbacksLanding.css */
+.custom-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff00 #ffffff00;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: dark;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+  }
+  
+  .box-container {
+    position: relative;
+  }
+  
+  .box-container .box {
+    position: relative;
+    width: 60px;
+    height: 20px;
+    margin-bottom: 4px;
+    padding: 4px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .box-container:hover .box {
+    transform: scale(1.5); 
+  }
+  
+  .box-container p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    white-space: nowrap;
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: 0;
+    color: #f0f0f0;
+    transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+  }
+  
+  .box-container:hover p {
+    transform: translate(-50%, -50%) scale(1.8); 
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+  
+ 
+.scroll-button {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+  }

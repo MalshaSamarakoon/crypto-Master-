@@ -28,9 +28,9 @@ export default async function CourseCard() {
           <div className="bg-bg-dark relative items-center rounded-[15px] border-[2px] border-[#d9b157] pb-8 text-center text-[#E7F1FB] shadow-xl">
             <img
               className="h-[150px] w-full rounded-t-[15px] object-cover object-top"
-              src="/images/course-crypto.jpeg"
-              alt="course-crypto"
-            />
+              src={m.image} 
+              alt={m.title}
+              />
             <div className="absolute top-0 left-0 bg-red-500 rounded-[8px] text-white text-s p-1 m-4 rounded-bl-md">
               {m.mode}
             </div>

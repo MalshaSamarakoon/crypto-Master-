@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const SlideShow = () => {
   const images = [
-    '/images/service1.svg',
-    '/images/service2.svg',
-    '/images/service3.svg',
+    '/images/service1.png',
+    '/images/service2.png',
+    '/images/service3.png',
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -26,7 +26,7 @@ const SlideShow = () => {
         className="slide"
         src={currentImage}
         alt={`Slide ${currentImageIndex + 1}`}
-        style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+        style={{ width: '100%', height: '600px', objectFit: 'cover' }}
       />
     </div>
   );

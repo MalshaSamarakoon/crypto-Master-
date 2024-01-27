@@ -17,20 +17,18 @@ const getteams = async () => {
 };
 
 export default async function TeamCard() {
-  const { teams } = await getteams() || {};
+  const { teams } = (await getteams()) || {};
 
   return (
     <>
       {teams.map((m: any) => (
-        <div
-          key={m._id}  
-        >
+        <div key={m._id}>
           <div className="bg-bg-dark rounded-[15px] shadow-xl border-[2px] border-[#d9b157] text-[#E7F1FB] relative w-[250px] max-w-full text-center flex flex-col items-center pt-8 pb-8">
             <div className="-mt-20">
               <img
                 className="border-[2px] border-[#d9b157] rounded-full w-[100px] h-[100px] object-cover p-1"
-                src="/images/udara_rajapaksha.jpg"
-                alt="Udara Rajapaksha"
+                src={m.image} 
+                alt={m.name}
               />
             </div>
             <h4 className="mt-5 mb-5 text-[#E7F1FB] relative w-[250px] ">
