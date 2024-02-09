@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import useLoaded from "@/hooks/useLoaded";
 
 export default function AddTeam() {
-  // console.log("HI")
+
 
   const [mode, setMode] = useState("");
   const [title, setTitle] = useState("");
@@ -14,9 +14,9 @@ export default function AddTeam() {
   const [price, setPrice] = useState("");
   const [duration, setDuration] = useState("");
   const [priceDescription, setPriceDescription] = useState("");
-  const [courseContentItems, setCourseContentItems] = useState([]);
+  const [courseContentItems, setCourseContentItems] = useState<string[]>([]);
   const [newContentItem, setNewContentItem] = useState("");
-  const [informationItems, setInformationItems] = useState([]);
+  const [informationItems, setInformationItems] = useState<string[]>([]);
   const [newInformationItem, setNewInformationItem] = useState("");
   const [imageBase64, setImageBase64] = useState(""); // State to store base64 image
 
@@ -27,7 +27,7 @@ export default function AddTeam() {
     }
   };
 
-  const removeContentItem = (index) => {
+  const removeContentItem = (index:any) => {
     const updatedItems = [...courseContentItems];
     updatedItems.splice(index, 1);
     setCourseContentItems(updatedItems);
@@ -40,7 +40,7 @@ export default function AddTeam() {
     }
   };
 
-  const removeInformationItem = (index) => {
+  const removeInformationItem = (index:any) => {
     const updatedItems = [...informationItems];
     updatedItems.splice(index, 1);
     setInformationItems(updatedItems);
@@ -49,7 +49,7 @@ export default function AddTeam() {
   const isLoaded = useLoaded();
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
 
     if (
@@ -65,7 +65,7 @@ export default function AddTeam() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/courses", {
+      const res = await fetch(`${process.env.BASE_URL}/api/courses`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
