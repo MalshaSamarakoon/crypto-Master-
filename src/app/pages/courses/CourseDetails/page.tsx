@@ -6,11 +6,25 @@ import YoutubeVideo from "@/app/components/YoutubeVideo";
 export default function CourseDetails() {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("_id");
-  const [courseDetails, setCourseDetails] = useState(null);
+
+  interface CourseDetails {
+    image: string;
+    priceDescription: string;
+    price: string;
+    title: string;
+    duration: string;
+    courseContent: string[];
+    courseDescription: string;
+    information: string[];
+  }
+
+  const [courseDetails, setCourseDetails] = useState<CourseDetails | null>(
+    null
+  );
 
   useEffect(() => {
     if (courseId) {
-      fetch(`http://localhost:3000/api/courses/${courseId}`)
+      fetch(`${process.env.BASE_URL}/api/courses/${courseId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch course details");
