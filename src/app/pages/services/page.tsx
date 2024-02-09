@@ -13,10 +13,14 @@ export default function ServicesPage() {
     { name: "Information Technology", component: <IT /> },
     { name: "Academic", component: <Academic /> },
   ];
+  interface Service {
+    name: string;
+    component: React.ReactNode;
+  }
+  
+  const [selectedService, setSelectedService] = React.useState<Service | null>(null);
 
-  const [selectedService, setSelectedService] = React.useState(null);
-
-  const handleServiceClick = (service) => {
+  const handleServiceClick = (service:any) => {
     setSelectedService(service);
   };
 
