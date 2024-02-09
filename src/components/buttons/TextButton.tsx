@@ -9,7 +9,7 @@ type TextButtonProps = {
 } & React.ComponentPropsWithRef<'button'>;
 
 const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
-  (
+  function TextButton(
     {
       children,
       className,
@@ -18,7 +18,7 @@ const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
       ...rest
     },
     ref
-  ) => {
+  ) {
     return (
       <button
         ref={ref}
@@ -48,5 +48,7 @@ const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
     );
   }
 );
+
+TextButton.displayName = 'TextButton'; // Add display name to TextButton component
 
 export default TextButton;
