@@ -22,7 +22,7 @@ type ButtonProps = {
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
+  function Button(
     {
       children,
       className,
@@ -37,7 +37,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     },
     ref
-  ) => {
+  ) {
     const disabled = isLoading || buttonDisabled;
 
     return (
@@ -156,5 +156,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+Button.displayName = 'Button'; // Add display name to Button component
 
 export default Button;
