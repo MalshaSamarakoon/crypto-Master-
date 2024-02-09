@@ -7,7 +7,7 @@ import UnstyledLink, {
 } from '@/components/links/UnstyledLink';
 
 const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
-  ({ children, className, ...rest }, ref) => {
+  function UnderlineLink({ children, className, ...rest }, ref) {
     return (
       <UnstyledLink
         ref={ref}
@@ -24,5 +24,7 @@ const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
     );
   }
 );
+
+UnderlineLink.displayName = 'UnderlineLink'; // Add display name to UnderlineLink component
 
 export default UnderlineLink;
