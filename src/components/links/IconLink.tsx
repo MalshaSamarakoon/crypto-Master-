@@ -26,7 +26,7 @@ type IconLinkProps = {
 } & Omit<UnstyledLinkProps, 'children'>;
 
 const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
-  (
+  function IconLink(
     {
       className,
       icon: Icon,
@@ -36,7 +36,7 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
       ...rest
     },
     ref
-  ) => {
+  ) {
     return (
       <UnstyledLink
         ref={ref}
@@ -93,5 +93,7 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
     );
   }
 );
+
+IconLink.displayName = 'IconLink'; // Add display name to IconLink component
 
 export default IconLink;
