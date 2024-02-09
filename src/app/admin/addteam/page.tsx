@@ -21,7 +21,7 @@ export default function AddTeam() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/teams", {
+      const res = await fetch(`${process.env.BASE_URL}/api/teams`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
