@@ -30,7 +30,7 @@ type ButtonLinkProps = {
 } & UnstyledLinkProps;
 
 const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
-  (
+  function ButtonLink(
     {
       children,
       className,
@@ -43,7 +43,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       ...rest
     },
     ref
-  ) => {
+  ) {
     return (
       <UnstyledLink
         ref={ref}
@@ -142,5 +142,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     );
   }
 );
+
+ButtonLink.displayName = 'ButtonLink'; // Add display name to ButtonLink component
 
 export default ButtonLink;
