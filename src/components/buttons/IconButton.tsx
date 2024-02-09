@@ -5,13 +5,7 @@ import { ImSpinner2 } from 'react-icons/im';
 
 import { cn } from '@/lib/utils';
 
-const IconButtonVariant = [
-  'primary',
-  'outline',
-  'ghost',
-  'light',
-  'dark',
-] as const;
+const IconButtonVariant = ['primary', 'outline', 'ghost', 'light', 'dark'] as const;
 
 type IconButtonProps = {
   isLoading?: boolean;
@@ -24,7 +18,7 @@ type IconButtonProps = {
 } & React.ComponentPropsWithRef<'button'>;
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  (
+  function IconButton(
     {
       className,
       disabled: buttonDisabled,
@@ -36,7 +30,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       ...rest
     },
     ref
-  ) => {
+  ) {
     const disabled = isLoading || buttonDisabled;
 
     return (
@@ -112,5 +106,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     );
   }
 );
+
+IconButton.displayName = 'IconButton'; // Add display name to IconButton component
 
 export default IconButton;
