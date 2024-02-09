@@ -12,7 +12,7 @@ type PrimaryLinkProps = {
 } & UnstyledLinkProps;
 
 const PrimaryLink = React.forwardRef<HTMLAnchorElement, PrimaryLinkProps>(
-  ({ className, children, variant = 'primary', ...rest }, ref) => {
+  function PrimaryLink({ className, children, variant = 'primary', ...rest }, ref) {
     return (
       <UnstyledLink
         ref={ref}
@@ -39,5 +39,7 @@ const PrimaryLink = React.forwardRef<HTMLAnchorElement, PrimaryLinkProps>(
     );
   }
 );
+
+PrimaryLink.displayName = 'PrimaryLink'; // Add display name to PrimaryLink component
 
 export default PrimaryLink;
