@@ -9,7 +9,7 @@ export default function Vision() {
           Vision
         </Accent>
       </h2>
-      <div className='mt-4 text-base text-gray-100 md:text-lg'>
+      <div className='mt-4 text-base text-gray-100 md:text-lg sm:text-sm'>
         &quot;To lead the way in transforming lives through cutting-edge knowledge, fostering prosperity, and opening doors to new technological and industrial opportunities that empower individuals to achieve financial well-being.&quot;
       </div>
     </div>
