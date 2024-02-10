@@ -58,7 +58,7 @@ export default function HomePage() {
                 data-fade="3"
               >
                 Empowering individuals with knowledge and tech solutions to
-                navigate tomorrow's world.
+                navigate tomorrow world.
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function HomePage() {
                     className="mt-10 text-base text-neutral-300 md:text-xl sm:mx-10 lg:mx-0"
                     style={{ lineHeight: "2", letterSpacing: "0.9px" }}
                   >
-                    At <span>Moon Education Center </span> our team of dedicated
+                    At <span>Moon Education Center</span>, our team of dedicated
                     educators and experts is here to guide you on your path to
                     financial success. We are committed to making knowledge
                     accessible to all, offering a wide range of resources and
