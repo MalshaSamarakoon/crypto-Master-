@@ -13,26 +13,33 @@ export default function LatestLanding() {
     "/images/update-1.jpg",
   ];
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const handleMouseDown = (e) => {
-    setStartX(e.pageX - containerRef.current.offsetLeft);
+  const handleMouseDown = (e: any) => {
+    if (!containerRef.current) return;
+  
+    setStartX(e.pageX - containerRef.current?.offsetLeft);
   };
+  
 
-  const handleMouseMove = (e) => {
-    if (!startX) return;
+const handleMouseMove = (e: any) => {
+  if (!startX || !containerRef.current) return;
 
-    const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust the multiplier for the desired scrolling speed
-    containerRef.current.scrollLeft = scrollLeft - walk;
-  };
+  const x = e.pageX - containerRef.current.offsetLeft;
+  const walk = (x - startX) * 2; // Adjust the multiplier for the desired scrolling speed
+  containerRef.current.scrollLeft = scrollLeft - walk;
+};
 
-  const handleMouseUp = () => {
-    setStartX(0);
-    setScrollLeft(containerRef.current.scrollLeft);
-  };
+
+const handleMouseUp = () => {
+  if (!containerRef.current) return;
+
+  setStartX(0);
+  setScrollLeft(containerRef.current.scrollLeft);
+};
+
 
   const handleMouseLeave = () => {
     handleMouseUp();
