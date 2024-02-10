@@ -6,7 +6,7 @@ export default function ServicesLanding() {
   const services = [
     { name: "Forex Trading" },
     { name: "Cryptocurrency" },
-    { name: "Information Technology" },
+    { name: "ICT" },
     { name: "Academic" },
   ];
 
