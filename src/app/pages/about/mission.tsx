@@ -9,7 +9,7 @@ export default function Mission() {
       Mission
     </Accent>
   </h2>
-  <div className='mt-4 text-base text-gray-100 md:text-lg text-right'>
+  <div className='mt-4 text-base text-gray-100 md:text-lg sm:text-sm text-right'>
   To lead the way in transforming lives through cutting-edge knowledge,
     fostering prosperity, and opening doors to new technological and industrial
     opportunities that empower individuals to achieve financial well-being
