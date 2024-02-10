@@ -1,10 +1,10 @@
 'use client';
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import Image from 'next/image';
 import Accent from '@/app/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import { useSearchParams } from 'next/navigation';
 
 type HeaderProps = {
   large?: boolean;
@@ -12,10 +12,9 @@ type HeaderProps = {
 
 export default function Header({ large = false }: HeaderProps) {
   //#region  //*=========== Route Functionality ===========
-  const router = useRouter();
-  const arrOfRoute = router.route ? router.route.split('/') : [];
-  const baseRoute = arrOfRoute.length > 1 ? '/' + arrOfRoute[1] : '';
-
+  const searchParams = useSearchParams();
+  const currentRoute = window.location.pathname;
+  const baseRoute = currentRoute.split('/')[1] || '';
   //#endregion  //*======== Route Functionality ===========
 
   //#region  //*=========== Scroll Shadow ===========
@@ -55,7 +54,6 @@ export default function Header({ large = false }: HeaderProps) {
       </a>
 
       {/* Gradient List */}
-
       <div className='bg-dark'>
         <nav
           className={clsx(
@@ -64,13 +62,11 @@ export default function Header({ large = false }: HeaderProps) {
           )}
         >
           <div className='flex items-center'>
-            {' '}
             {/* Logo container */}
             <Image src='/images/Logo.PNG' alt='Logo' width={150} height={120} />
           </div>
 
           <ul className='flex items-center space-x-3 text-xs md:space-x-10 md:text-base'>
-            {' '}
             {/* Navigation items container */}
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
