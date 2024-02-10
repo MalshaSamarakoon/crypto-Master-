@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import Image from 'next/image';
 import Accent from '@/app/components/Accent';
