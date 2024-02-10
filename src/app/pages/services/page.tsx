@@ -17,10 +17,12 @@ export default function ServicesPage() {
     name: string;
     component: React.ReactNode;
   }
-  
-  const [selectedService, setSelectedService] = React.useState<Service | null>(null);
 
-  const handleServiceClick = (service:any) => {
+  const [selectedService, setSelectedService] = React.useState<Service | null>(
+    null
+  );
+
+  const handleServiceClick = (service: any) => {
     setSelectedService(service);
   };
 
@@ -74,18 +76,20 @@ export default function ServicesPage() {
                     wide range of resources and training to help you harness the
                     potential of new technologies and industries.
                   </p>
+
                   <br />
                   <p className="my-4 max-w-4xl text-left text-white md:text-lg 2xl:text-xl">
                     Embark on a transformative learning journey with Moon
-                    Education Center's diverse range of services. Our commitment
-                    extends beyond imparting knowledge; we foster an inclusive
-                    and dynamic learning environment where you can engage with
-                    cutting-edge concepts, connect with industry experts, and
-                    cultivate the skills needed to thrive in today's rapidly
-                    evolving landscape. Join us in shaping a future where
-                    education paves the way to unparalleled financial success
-                    and personal growth.
+                    Education Center&apos;s diverse range of services. Our
+                    commitment extends beyond imparting knowledge; we foster an
+                    inclusive and dynamic learning environment where you can
+                    engage with cutting-edge concepts, connect with industry
+                    experts, and cultivate the skills needed to thrive in
+                    today&apos;s rapidly evolving landscape. Join us in shaping
+                    a future where education paves the way to unparalleled
+                    financial success and personal growth.
                   </p>
+
                   <br />
 
                   <p className="my-4 max-w-4xl text-left text-white md:text-lg 2xl:text-xl">
