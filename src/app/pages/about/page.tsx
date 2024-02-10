@@ -10,28 +10,11 @@ export default function AboutPage() {
   return (
     <main>
       <section className=" relative">
-        <div className="lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1">
+        <div className="lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1 sm:mx-10 lg:mx-0">
           <div
-            className="relative content-container z-10 text-lg md:text-xl"
-            // style={{
-            //   backgroundImage: "url('/images/blackgold.jpg')",
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            //   position: "relative",
-            //   overflow: "hidden",
-            // }}
-          >
-            <div
-            // style={{
-            //   position: "absolute",
-            //   top: 0,
-            //   left: 0,
-            //   width: "100%",
-            //   height: "60%",
-            //   background: "linear-gradient(to bottom, #222222, rgba(0,0,0,0))",
-            // }}
-            /> 
-           <div className="layout">
+            className="relative content-container z-10 text-lg md:text-xl">
+            <div/> 
+           <div className="layout ">
               <h1
                 className="text-white md:text-5xl md:leading-snug"
                 data-fade="2"
@@ -41,7 +24,7 @@ export default function AboutPage() {
               <p
                 className={clsx(
                   "my-4 max-w-4xl text-left text-white md:my-10",
-                  "md:text-lg 2xl:text-xl"
+                  "md:text-lg sm:text-sm 2xl:text-xl"
                 )}
                 data-fade="3"
               >
