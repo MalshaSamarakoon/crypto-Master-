@@ -1,6 +1,6 @@
 import React from "react";
 
-const getteams = async () => {
+const getTeams = async () => {
   try {
     const res = await fetch(`${process.env.BASE_URL}/api/teams`, {
       cache: "no-store",
@@ -13,15 +13,16 @@ const getteams = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading teams: ", error);
+    return { teams: [] }; // Return an empty array in case of error
   }
 };
 
 export default async function TeamCard() {
-  const { teams } = (await getteams()) || {};
+  const { teams } = await getTeams();
 
   return (
     <>
-      {teams.map((m: any) => (
+      {teams?.map((m: any) => (
         <div key={m._id}>
           <div className="bg-bg-dark rounded-[15px] shadow-xl border-[2px] border-[#d9b157] text-[#E7F1FB] relative w-[250px] max-w-full text-center flex flex-col items-center pt-8 pb-8">
             <div className="-mt-20">
