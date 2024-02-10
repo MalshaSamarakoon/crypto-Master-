@@ -10,7 +10,7 @@ export default function ServicesPage() {
   const services = [
     { name: "Cryptocurrency", component: <Cryptocurrency /> },
     { name: "Forex Trading", component: <Forex /> },
-    { name: "Information Technology", component: <IT /> },
+    { name: "ICT", component: <IT /> },
     { name: "Academic", component: <Academic /> },
   ];
   interface Service {
