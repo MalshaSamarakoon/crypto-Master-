@@ -33,7 +33,7 @@ export default function ServicesPage() {
       </Head>
 
       <section className=" relative">
-        <div className="lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1">
+        <div className="lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1  sm:mx-10 lg:mx-0">
           <div className="layout">
             <h1
               className="text-white md:text-5xl md:leading-snug"
@@ -47,7 +47,7 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="cursor-pointer sm:h-20 lg:h-20 lg:text-2xl sm:text-xl sm:mx-10 lg:mx-0"
+                  className="cursor-pointer sm:h-20 lg:h-20 lg:text-2xl sm:text-xl"
                   style={{
                     textDecoration:
                       selectedService === service ? "underline" : "none",
