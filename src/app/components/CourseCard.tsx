@@ -15,11 +15,12 @@ const getcourses = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading courses: ", error);
+    return { courses: [] }; // Return an empty array in case of error
   }
 };
 
 export default async function CourseCard() {
-  const { courses } = (await getcourses()) || {};
+  const { courses } = await getcourses();
 
   return (
     <>
