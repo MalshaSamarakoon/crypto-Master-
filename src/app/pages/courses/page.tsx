@@ -13,8 +13,7 @@ export default function CoursesPage() {
 
       <section
         className={clsx(
-          " min-h-main mb-10 flex flex-col justify-center",
-         
+          " min-h-main mb-10 flex flex-col justify-center sm:mx-10 lg:mx-0",
         )}
       >
         <section className=" relative">
