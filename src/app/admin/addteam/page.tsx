@@ -65,6 +65,9 @@ export default function AddTeam() {
           >
             <section className="relative">
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <div className=" py-10 ">
+                  <h1 className=" "> Add Lecture Details </h1>
+                </div>
                 <label className="block text-sm font-medium text-dark">
                   Name
                 </label>
@@ -137,7 +140,7 @@ export default function AddTeam() {
 
                 <button
                   type="submit"
-                  className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
+                  className="h-12 w-80 mt-10 rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
                 >
                   Add Member
                 </button>
