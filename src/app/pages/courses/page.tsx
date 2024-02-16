@@ -42,7 +42,7 @@ export default function CoursesPage() {
               resources and practical guidance.
             </p>
 
-            <div className="mt-40">
+            <div className="mt-20">
               <CourseList />
             </div>
             <Seperator />
