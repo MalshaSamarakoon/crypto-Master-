@@ -304,7 +304,7 @@ export default function AddTeam() {
 
                 <button
                   type="submit"
-                  className="h-12 w-80  rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
+                  className="h-12 w-80 mt-10 rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
                 >
                   Add Course
                 </button>
