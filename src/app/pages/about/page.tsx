@@ -23,7 +23,7 @@ export default function AboutPage() {
               </h1>
               <p
                 className={clsx(
-                  "my-4 max-w-4xl text-left text-white md:my-10",
+                  "my-4 max-w-4xl text-left text-neutral-400 md:my-10",
                   "md:text-lg sm:text-sm 2xl:text-xl"
                 )}
                 data-fade="3"
