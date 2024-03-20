@@ -55,6 +55,9 @@ body {
   animation: shake 0.5s ease-in-out;
 }
 
+.shake-on-hover {
+  animation: shake 0.8s infinite;
+}
   .cursor-newtab {
     cursor: url('/images/new-tab.png') 10 10, pointer;
   }
