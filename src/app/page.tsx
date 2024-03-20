@@ -128,7 +128,7 @@ export default function HomePage() {
             <div className=" relative content-container bg-dark ">
               <Seperator />
             </div>
-            <div className="a2a_kit a2a_kit_size_32 a2a_default_style fixed bottom-12 right-12 z-10 w-16 h-16">
+            <div className="a2a_kit a2a_kit_size_32 a2a_default_style fixed bottom-12 right-12 z-20 w-16 h-16">
               {/* WhatsApp chat button */}
               <a
                 href="https://api.whatsapp.com/send?phone=94713426510"
