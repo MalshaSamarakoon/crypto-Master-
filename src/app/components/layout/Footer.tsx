@@ -109,7 +109,7 @@ export default function Footer() {
                     href="#!"
                     className="text-neutral-600 dark:text-neutral-200"
                   >
-                    Forex Trading
+                    Forex
                   </a>
                 </p>
                 <p className="mb-4">
