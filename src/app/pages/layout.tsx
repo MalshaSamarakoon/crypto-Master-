@@ -6,8 +6,8 @@ import Header from '../components/layout/Header';
 import '@/styles/colors.css';
 
 export const metadata: Metadata = {
-  title: 'Components',
-  description: 'Pre-built components with awesome default',
+  title: 'Moon Education Center',
+  description: 'guiding individuals on their journey to financial success',
 };
 
 export default function ComponentsLayout({
