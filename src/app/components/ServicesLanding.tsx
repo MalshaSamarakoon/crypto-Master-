@@ -4,7 +4,7 @@ import "./FeedbacksLanding.css";
 
 export default function ServicesLanding() {
   const services = [
-    { name: "Forex Trading" },
+    { name: "Forex" },
     { name: "Cryptocurrency" },
     { name: "ICT" },
     { name: "Academic" },
