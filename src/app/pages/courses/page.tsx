@@ -10,7 +10,9 @@ export default function CoursesPage() {
   return (
     <main>
 
-
+<Head>
+        <title>Moon Education | Cources</title>
+      </Head>
       <section
         className={clsx(
           " min-h-main mb-10 flex flex-col justify-center sm:mx-10 lg:mx-0",
@@ -28,7 +30,7 @@ export default function CoursesPage() {
             <p
               className={clsx(
                 "mt-4 max-w-4xl text-left text-neutral-400 md:mt-10",
-                "md:text-lg 2xl:text-xl"
+                "md:text-lg 2xl:text-lg"
               )}
               data-fade="3"
             >
