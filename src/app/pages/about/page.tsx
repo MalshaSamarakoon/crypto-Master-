@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import useLoaded from "@/hooks/useLoaded";
+import Head from "next/head";
 import Vision from "@/app/pages/about/vision";
 import Mission from "@/app/pages/about/mission";
 import TeamList from "@/app/pages/about/TeamList";
@@ -9,6 +9,9 @@ import Seperator from "@/app/components/Seperator";
 export default function AboutPage() {
   return (
     <main>
+            <Head>
+        <title>Moon Education | About</title>
+      </Head>
       <section className=" relative">
         <div className="lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1 sm:mx-10 lg:mx-0">
           <div
@@ -24,7 +27,7 @@ export default function AboutPage() {
               <p
                 className={clsx(
                   "my-4 max-w-4xl text-left text-neutral-400 md:my-10",
-                  "md:text-lg sm:text-sm 2xl:text-xl"
+                  "md:text-lg sm:text-sm 2xl:text-lg"
                 )}
                 data-fade="3"
               >
