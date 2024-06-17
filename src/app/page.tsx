@@ -34,6 +34,7 @@ export default function HomePage() {
       <Head>
         {/* Add the WhatsApp chat widget script */}
         <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <meta name="google-site-verification" content="fcbRWJaorkbcj6GGJZ-p3WObHovaOLwxA6V20c-RrEs" />
       </Head>
       <main className="w-screen ">
         <Header />
