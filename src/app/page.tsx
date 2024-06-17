@@ -53,7 +53,7 @@ export default function HomePage() {
                   className="text-neutral-100 text-left md:text-7xl md:leading-snug "
                   data-fade="2"
                 >
-                  Turning Knowledge into Wealth.. <br /> Your Success.. <br />{" "}
+                  Turning Knowledge into Wealth.. <br /> Logiblocks <br />{" "}
                   Our Expertise !
                 </h1>
                 <p
