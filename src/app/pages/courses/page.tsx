@@ -10,31 +10,40 @@ export default function CoursesPage() {
   return (
     <main>
 
-<Head>
-        <title>Moon Education | Cources</title>
-      </Head>
+
       <section
         className={clsx(
-          " min-h-main mb-10 flex flex-col justify-center sm:mx-10 lg:mx-0",
+          " min-h-main mb-10 flex flex-col justify-center",
+         
         )}
       >
+                <div
+          className="relative content-container z-10 text-lg md:text-xl flex items-center justify-center"
+          style={{ position: "relative", width: "100%" }}
+        >
+          <img
+            src="/images/hero.jpg"
+            alt="Hero Image"
+            className="w-full h-full object-cover col-span-2"
+          />
+        </div>
         <section className=" relative">
           <div className="layout lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1">
             <h1
-              className="text-white md:text-5xl md:leading-snug"
-              data-fade="2"
-            >
+                id="moon-education"
+                style={{ color: "#01162d" }}
+                className="text-black md:text-4xl md:leading-snug mb-8"
+                data-fade="2"
+              >
               Our Courses
-            </h1>
+              </h1>
             <div></div>
-            <p
-              className={clsx(
-                "mt-4 max-w-4xl text-left text-neutral-400 md:mt-10",
-                "md:text-lg 2xl:text-lg"
-              )}
-              data-fade="3"
-            >
-              We are a passionate team of educators and experts dedicated to
+            <div
+                className="text-base text-neutral-800 md:text-m sm:mx-10 lg:mx-0"
+                style={{ lineHeight: "2", letterSpacing: "0px" }}
+              >
+                <p className="mb-2 text-justify">
+                We are a passionate team of educators and experts dedicated to
               guiding individuals on their journey to financial success.
               Committed to democratizing knowledge, we provide accessible
               resources and training, ensuring that everyone has the opportunity
@@ -42,9 +51,10 @@ export default function CoursesPage() {
               wealth and achieve their dreams. Dedicated to democratizing
               knowledge, we empower financial success through accessible
               resources and practical guidance.
-            </p>
+                </p>
+                </div>
 
-            <div className="mt-20">
+            <div className="mt-40">
               <CourseList />
             </div>
             <Seperator />
