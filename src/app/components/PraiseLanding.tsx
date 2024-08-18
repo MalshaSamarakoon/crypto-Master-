@@ -3,30 +3,33 @@ import * as React from "react";
 export default function Praise() {
   return (
     <section className="relative">
-      <div className="flex items-center justify-center w-4/5 absolute left-1/2 transform -translate-x-1/2 -translate-y-full -mt-20 lg:mt-0 lg:-translate-y-1/2">
-        <div className="flex flex-wrap w-full">
-          <div className="w-full lg:w-1/4 mb-4 px-2">
-            <div className="flex-1 border-dashed border-2 border-teal-500 bg-neutral-800 p-6 text-teal-500 text-center hover:shake md:mr-8 sm:mr-0 rounded-xl">
-              <h2 className="text-4xl md:text-5xl ">24/7 </h2>{" "}
-              <h5 className="text-xl lg:pt-6 ">Service </h5>
+      <div
+        style={{ backgroundColor: "#002147" }}
+        className="flex items-center justify-center md:py-2 sm:py-1 border-y border-neutral-500 text-neutral-400"
+      >
+        <div className="flex w-full">
+          <div className="w-1/4 px-2">
+            <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center border-r border-neutral-500">
+              <h2 className="text-xs md:text-3xl mr-2">24/7</h2>
+              <h5 className="text-xs md:text-lg">Service</h5>
+              </div>
+          </div>
+          <div className="w-1/4 px-2">
+            <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center border-r border-neutral-500">
+              <h2 className="text-xs md:text-3xl mr-2">20+</h2>
+              <h5 className="text-xs md:text-lg"> Lecturers</h5>
             </div>
           </div>
-          <div className="w-full lg:w-1/4 mb-4 px-2">
-            <div className="flex-1 border-dashed border-2 border-teal-500 bg-neutral-800  p-6 text-teal-500 text-center hover:shake md:mr-8 sm:mr-0 rounded-xl">
-              <h2 className="text-4xl md:text-5xl "> 20+ </h2>{" "}
-              <h5 className="text-xl lg:pt-6 ">Qualified Lecturers </h5>
+          <div className="w-1/4 md:px-2">
+            <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center border-r border-neutral-500">
+              <h2 className="text-xs md:text-3xl mr-2">3+ </h2>
+              <h5 className="text-xs md:text-lg"> Years Experience</h5>
             </div>
           </div>
-          <div className="w-full lg:w-1/4 mb-4 px-2">
-            <div className="flex-1 border-dashed border-2 border-teal-500 bg-neutral-800  p-6 text-teal-500 text-center hover:shake  md:mr-8 sm:mr-0 rounded-xl">
-              <h2 className="text-4xl md:text-5xl "> 3+ </h2>{" "}
-              <h5 className="text-xl lg:pt-6 ">Years Experience </h5>
-            </div>
-          </div>
-          <div className="w-full lg:w-1/4 mb-4 px-2">
-            <div className="flex-1 border-dashed border-2 border-teal-500 bg-neutral-800  p-6 text-teal-500 text-center hover:shake md:mr-8 sm:mr-0 rounded-xl">
-              <h2 className="text-4xl md:text-5xl "> 1000+ </h2>{" "}
-              <h5 className="text-xl lg:pt-6 ">Students </h5>
+          <div className="w-1/4 px-2">
+            <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center">
+              <h2 className="text-xs md:text-3xl mr-2">1000+</h2>
+              <h5 className="text-xs md:text-lg">Students</h5>
             </div>
           </div>
         </div>
