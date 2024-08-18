@@ -60,7 +60,7 @@ export default function HomePage() {
                 style={{ color: "#00214790" }}
               >
                 We empower individuals with knowledge and tech solutions to
-                navigate tomorrow's world.
+                navigate tomorrow&#39;s world.
               </h6>
 
               <div className="flex justify-center space-x-4">
