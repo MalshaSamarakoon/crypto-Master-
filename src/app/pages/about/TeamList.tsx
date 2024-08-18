@@ -3,13 +3,15 @@ import TeamCard from "@/app/components/TeamCard";
 
 export default function TeamList() {
   return (
-    <div className="w-full space-y-32">
-      <h2
-        className="text-white text-center font-medium md:mt-20 md:text-5xl md:leading-snug"
-        data-fade="1"
+    <div className="w-full space-t-32 mt-20">
+      <h1
+        id="moon-education"
+        style={{ color: "#01162d" }}
+        className="text-black md:text-3xl md:leading-snug mb-8"
+        data-fade="2"
       >
         Meet the Teachers
-      </h2>
+      </h1>
 
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
