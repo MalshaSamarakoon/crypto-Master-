@@ -6,6 +6,7 @@ export async function PUT(request, { params }) {
   const { id } = params;
   const {
     newMode: mode,
+    newType: type,
     newTitle: title,
     newDescription: description,
     newCourseDescription: courseDescription,
@@ -19,6 +20,7 @@ export async function PUT(request, { params }) {
   await connectMongoDB();
   await Course.findByIdAndUpdate(id, {
     mode,
+    type,
     title,
     description,
     courseDescription,
@@ -37,3 +39,4 @@ export async function GET(request, { params }) {
   const course = await Course.findOne({ _id: id });
   return NextResponse.json({ course }, { status: 200 });
 }
+
