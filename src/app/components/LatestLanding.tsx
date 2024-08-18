@@ -1,6 +1,4 @@
-// LatestLanding.tsx
-import React, { useState, useRef } from "react";
-import AccentTeal from "./AccentTeal";
+import React, { useState, useRef, useEffect } from "react";
 import "./FeedbacksLanding.css";
 
 export default function LatestLanding() {
@@ -13,49 +11,78 @@ export default function LatestLanding() {
     "/images/update-1.jpg",
   ];
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
 
-  const handleMouseDown = (e: any) => {
-    if (!containerRef.current) return;
-  
-    setStartX(e.pageX - containerRef.current?.offsetLeft);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isUserInteracting) {
+        if (containerRef.current.scrollLeft + containerRef.current.offsetWidth >= containerRef.current.scrollWidth) {
+          containerRef.current.scrollTo({
+            left: 0,
+            behavior: "smooth",
+          });
+        } else {
+          containerRef.current.scrollBy({
+            left: 300, // Adjust the scroll amount to your preference
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 3000); // Adjust the interval duration to your preference
+
+    return () => clearInterval(interval);
+  }, [isUserInteracting]);
+
+  const handleMouseDown = (e) => {
+    setIsUserInteracting(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
   };
-  
 
-const handleMouseMove = (e: any) => {
-  if (!startX || !containerRef.current) return;
+  const handleMouseMove = (e) => {
+    if (!startX) return;
 
-  const x = e.pageX - containerRef.current.offsetLeft;
-  const walk = (x - startX) * 2; // Adjust the multiplier for the desired scrolling speed
-  containerRef.current.scrollLeft = scrollLeft - walk;
-};
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust the multiplier for the desired scrolling speed
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
 
-
-const handleMouseUp = () => {
-  if (!containerRef.current) return;
-
-  setStartX(0);
-  setScrollLeft(containerRef.current.scrollLeft);
-};
-
+  const handleMouseUp = () => {
+    setIsUserInteracting(false);
+    setStartX(0);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
 
   const handleMouseLeave = () => {
     handleMouseUp();
   };
 
+  const handleTouchStart = (e) => {
+    setIsUserInteracting(true);
+    handleMouseDown(e.touches[0]);
+  };
+
+  const handleTouchMove = (e) => {
+    handleMouseMove(e.touches[0]);
+  };
+
+  const handleTouchEnd = () => {
+    setIsUserInteracting(false);
+    handleMouseUp();
+  };
+
   return (
-    <section className="relative ">
-      <div className=" layout bg-neutral-700 items-center rounded-2xl">
-        <div className="h-full w-full layout lg:px-20 pt-10">
-          <h2 className="text-4xl md:text-6xl sm:mx-10 lg:mx-0 mb-10">
-            <AccentTeal className="inline decoration-clone leading-snug dark:leading-none ">
-              Latest Updates
-            </AccentTeal>
+    <section className="relative">
+      <div className="layout items-center">
+        <div className="h-full w-full layout lg:px-0 pt-0">
+          <h2 style={{ color: "#01162d" }} className="text-2xl md:text-3xl sm:mx-0 lg:mx-0 mb-10">
+            Latest Updates
           </h2>
         </div>
-        <div className="layout flex flex-col lg:p-10 sm:p-0">
+        <div className="layout flex flex-col lg:p-0 sm:p-0">
           <div
             ref={containerRef}
             className="h-full w-full overflow-x-auto custom-scrollbar"
@@ -64,9 +91,9 @@ const handleMouseUp = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
-            onTouchStart={(e) => handleMouseDown(e.touches[0])}
-            onTouchMove={(e) => handleMouseMove(e.touches[0])}
-            onTouchEnd={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {images.map((image, index) => (
               <div
