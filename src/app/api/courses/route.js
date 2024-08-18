@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   const {
     mode,
+    type,
     title,
     description,
     courseDescription,
@@ -51,6 +52,7 @@ export async function POST(request) {
 
     await Course.create({
       mode,
+      type,
       title,
       description,
       courseDescription,
