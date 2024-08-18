@@ -5,18 +5,19 @@ import { useRouter } from "next/navigation";
 import useLoaded from "@/hooks/useLoaded";
 
 export default function AddTeam() {
-
+  // console.log("HI")
 
   const [mode, setMode] = useState("");
+  const [type, setType] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [price, setPrice] = useState("");
   const [duration, setDuration] = useState("");
   const [priceDescription, setPriceDescription] = useState("");
-  const [courseContentItems, setCourseContentItems] = useState<string[]>([]);
+  const [courseContentItems, setCourseContentItems] = useState([]);
   const [newContentItem, setNewContentItem] = useState("");
-  const [informationItems, setInformationItems] = useState<string[]>([]);
+  const [informationItems, setInformationItems] = useState([]);
   const [newInformationItem, setNewInformationItem] = useState("");
   const [imageBase64, setImageBase64] = useState(""); // State to store base64 image
 
@@ -27,7 +28,7 @@ export default function AddTeam() {
     }
   };
 
-  const removeContentItem = (index:any) => {
+  const removeContentItem = (index) => {
     const updatedItems = [...courseContentItems];
     updatedItems.splice(index, 1);
     setCourseContentItems(updatedItems);
@@ -40,7 +41,7 @@ export default function AddTeam() {
     }
   };
 
-  const removeInformationItem = (index:any) => {
+  const removeInformationItem = (index) => {
     const updatedItems = [...informationItems];
     updatedItems.splice(index, 1);
     setInformationItems(updatedItems);
@@ -49,11 +50,12 @@ export default function AddTeam() {
   const isLoaded = useLoaded();
   const router = useRouter();
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
       !mode ||
+      !type ||
       !title ||
       !description ||
       !courseDescription ||
@@ -65,13 +67,14 @@ export default function AddTeam() {
     }
 
     try {
-      const res = await fetch(`${process.env.BASE_URL}/api/courses`, {
+      const res = await fetch("http://localhost:3000/api/courses", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
           mode,
+          type,
           title,
           description,
           courseDescription,
@@ -107,7 +110,7 @@ export default function AddTeam() {
 
     reader.readAsDataURL(selectedFile);
   };
-  
+
   return (
     <>
       <main style={{ backgroundColor: "white" }}>
@@ -133,6 +136,18 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Name"
                 />
+
+                <label className="block text-sm font-medium text-dark">
+                  Type
+                </label>
+                <input
+                  onChange={(e) => setType(e.target.value)}
+                  value={type}
+                  className="border border-slate-500 px-8 py-2"
+                  type="text"
+                  placeholder="Course Type"
+                />
+
                 <label className="block text-sm font-medium text-dark">
                   Title
                 </label>
@@ -153,7 +168,7 @@ export default function AddTeam() {
                   type="text"
                   placeholder="Member Description"
                 />
-                                <div>
+                <div>
                   <label className="block text-sm font-medium text-dark">
                     Image
                   </label>
@@ -304,7 +319,7 @@ export default function AddTeam() {
 
                 <button
                   type="submit"
-                  className="h-12 w-80 mt-10 rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
+                  className="h-12 w-80  rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
                 >
                   Add Course
                 </button>
