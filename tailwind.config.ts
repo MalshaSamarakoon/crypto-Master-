@@ -17,7 +17,7 @@ module.exports = {
           50: 'rgb(var(--tw-color-primary-50))',
           100: 'rgb(var(--tw-color-primary-100))',
         },
-        dark: '#222222',
+        dark: '#ffffff',
       },
     },
   },
