@@ -1,5 +1,5 @@
-import connectMongoDB from "../../../lib/mongodb";
-import Type from "../../../models/type";
+import connectMongoDB from "../../../../lib/mongodb";
+import Type from "../../../../models/type";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
