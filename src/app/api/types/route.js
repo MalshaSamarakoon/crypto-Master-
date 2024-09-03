@@ -1,11 +1,11 @@
-import connectMongoDB from "../../../lib/mongodb";
-import Type from "../../../models/type";
+import connectMongoDB from "../../../../lib/mongodb";
+import Type from "../../../../models/type";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const { name} = await request.json();
+  const { name } = await request.json();
   await connectMongoDB();
-  await Type.create({ name});
+  await Type.create({ name });
   return NextResponse.json({ message: "Member Created" }, { status: 201 });
 }
 
