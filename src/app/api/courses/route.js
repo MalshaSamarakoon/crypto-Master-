@@ -2,7 +2,7 @@ import connectMongoDB from "../../../lib/mongodb";
 import Course from "../../../models/course";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function POST(request) { 
   const {
     mode,
     type,
