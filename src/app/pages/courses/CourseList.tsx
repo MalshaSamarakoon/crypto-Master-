@@ -1,10 +1,13 @@
 import React from "react";
 import CourseCard from "@/app/components/CourseCard";
 
-// Define the type for a single course
+// Define the type for a single course with required properties
 interface Course {
   _id: string;
   type: string;
+  title: string;
+  description: string;
+  mode: string;
   // Add other properties as needed
 }
 
