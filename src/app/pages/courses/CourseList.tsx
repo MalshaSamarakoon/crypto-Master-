@@ -25,15 +25,18 @@ const getCourses = async (): Promise<GroupedCourses | undefined> => {
 
     const data = await res.json();
 
+    // Ensure TypeScript knows the structure of `data.courses`
+    const courses: Course[] = data.courses;
+
     // Group courses by type
-    const groupedCourses = data.courses.reduce<GroupedCourses>((acc, course: Course) => {
+    const groupedCourses = courses.reduce((acc: GroupedCourses, course: Course) => {
       const { type } = course;
       if (!acc[type]) {
         acc[type] = [];
       }
       acc[type].push(course);
       return acc;
-    }, {});
+    }, {} as GroupedCourses);
 
     return groupedCourses;
   } catch (error) {
