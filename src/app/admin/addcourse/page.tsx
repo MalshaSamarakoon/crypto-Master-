@@ -1,35 +1,5 @@
-// Define the type for the course prop
-interface Course {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  price: string;
-  duration: string;
-  // Add other fields as needed
-}
+"use client"; 
 
-// Import necessary modules
-import Link from "next/link";
-
-// CourseCard component with course prop type annotation
-export default function CourseCard({ course }: { course: Course }) {
-  return (
-    <div>
-      <div className="bg-bg-dark relative items-center border-[2px] border-[#d9b157] pb-8 text-center text-[#002147] shadow-xl">
-        <img src={course.imageUrl} alt={course.title} />
-        <h2>{course.title}</h2>
-        <p>{course.description}</p>
-        <p>{course.price}</p>
-        <p>{course.duration}</p>
-        {/* Add other content as needed */}
-      </div>
-    </div>
-  );
-}
-
-// AddTeam component with full form implementation
-"use client";
 import clsx from "clsx";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -300,15 +270,12 @@ export default function AddTeam() {
                 type="text"
                 placeholder="New Content Item"
               />
-              <button
-                type="button"
-                onClick={addContentItem}
-                className="border border-slate-500 px-8 py-2 mt-2"
-              >
+              <button type="button" onClick={addContentItem}>
                 Add Content Item
               </button>
+
               <label className="block text-sm font-medium text-dark">
-                Information Items
+                Information
               </label>
               <ul>
                 {informationItems.map((item, index) => (
@@ -330,17 +297,10 @@ export default function AddTeam() {
                 type="text"
                 placeholder="New Information Item"
               />
-              <button
-                type="button"
-                onClick={addInformationItem}
-                className="border border-slate-500 px-8 py-2 mt-2"
-              >
+              <button type="button" onClick={addInformationItem}>
                 Add Information Item
               </button>
-              <button
-                type="submit"
-                className="border border-slate-500 px-8 py-2 mt-4"
-              >
+              <button type="submit" className="mt-4 p-2 bg-blue-500 text-white">
                 Submit
               </button>
             </form>
