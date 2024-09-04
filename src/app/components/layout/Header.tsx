@@ -323,10 +323,10 @@ export default function Header({ large = false }: HeaderProps) {
 }
 
 const links = [
-  { href: "/courses", label: "Courses" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  // Add other links as needed
+  { href: "/", label: "Home" },
+  { href: "/pages/about", label: "About" },
+  { href: "/pages/courses", label: "Courses" },
+  { href: "/pages/services/", label: "Services" },
 ];
 
 const dropdownItems = {
