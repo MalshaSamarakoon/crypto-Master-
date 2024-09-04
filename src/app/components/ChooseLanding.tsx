@@ -5,22 +5,22 @@ export default function ChooseLanding() {
   const services = [
     {
       name: "Modern Learning Technologies",
-      desc: "We let you make the difference. Our goal is to inspire you with new insights and creative solutions.",
+      desc: "We leverage the latest educational technologies to create a dynamic, interactive, and engaging learning experience.",
       icon: "/images/clipboard-list-check.svg",
     },
     {
       name: "Luxurious Environment",
-      desc: "We let you make the difference. Our goal is to inspire you with new insights and creative solutions.",
+      desc: "Experience a premium learning environment designed to inspire and comfort, enhancing focus and academic performance.",
       icon: "/images/store-alt.svg",
     },
     {
-      name: "Online / Physical  ",
-      desc: "We let you make the difference. Our goal is to inspire you with new insights and creative solutions.",
+      name: "Qualified Lecturers",
+      desc: "Learn from highly qualified lecturers who bring extensive experience and expertise to each lesson, ensuring top-quality education.",
       icon: "/images/badge-check.svg",
     },
     {
-      name: "Online / Physical  ",
-      desc: "We let you make the difference. Our goal is to inspire you with new insights and creative solutions.",
+      name: "Online / Physical ",
+      desc: "We offer flexible learning with online and in-person classes, tailored to meet diverse student needs and preferences.",
       icon: "/images/badge-check.svg",
     },
   ];
