@@ -331,18 +331,29 @@ const links = [
 
 const dropdownItems = {
   courses: [
-    { href: "/courses/intro", label: "Introduction" },
-    { href: "/courses/advanced", label: "Advanced Topics" },
-    // Add other courses as needed
+    {
+      href: "/pages/courses#vocational-training-programs",
+      label: "Vocational Training Programs",
+    },
+    {
+      href: "/pages/courses#school-curriculum-support-classes",
+      label: "School Curriculum Support Classes",
+    },
+    {
+      href: "/pages/courses#educational-support-programs",
+      label: "Educational Support Programs",
+    },
+    {
+      href: "/pages/courses#financial-aid-and-training-programs",
+      label: "Financial Aid and Training Programs",
+    },
   ],
   about: [
-    { href: "/about/team", label: "Our Team" },
-    { href: "/about/mission", label: "Our Mission" },
-    // Add other about items as needed
+    { href: "/pages/about#moon-education", label: "Moon Education" },
+    { href: "/pages/about#team-list", label: "Teachers" },
   ],
   services: [
-    { href: "/services/consulting", label: "Consulting" },
-    { href: "/services/development", label: "Development" },
-    // Add other services as needed
+    { href: "/pages/services", label: "Counseling" },
+    { href: "/pages/services/teachingspace", label: "Teaching Space" },
   ],
 };
