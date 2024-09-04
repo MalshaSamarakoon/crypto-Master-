@@ -1,7 +1,19 @@
 import React from "react";
 import CourseCard from "@/app/components/CourseCard";
 
-const getcourses = async () => {
+// Define the type for a single course
+interface Course {
+  _id: string;
+  type: string;
+  // Add other properties as needed
+}
+
+// Define the type for the grouped courses
+interface GroupedCourses {
+  [type: string]: Course[];
+}
+
+const getCourses = async (): Promise<GroupedCourses | undefined> => {
   try {
     const res = await fetch("http://localhost:3000/api/courses", {
       cache: "no-store",
@@ -14,7 +26,7 @@ const getcourses = async () => {
     const data = await res.json();
 
     // Group courses by type
-    const groupedCourses = data.courses.reduce((acc:any, course:any) => {
+    const groupedCourses = data.courses.reduce<GroupedCourses>((acc, course: Course) => {
       const { type } = course;
       if (!acc[type]) {
         acc[type] = [];
@@ -30,7 +42,7 @@ const getcourses = async () => {
 };
 
 export default async function CourseList() {
-  const groupedCourses = await getcourses();
+  const groupedCourses = await getCourses();
 
   if (!groupedCourses) {
     return <p>Error loading courses.</p>;
