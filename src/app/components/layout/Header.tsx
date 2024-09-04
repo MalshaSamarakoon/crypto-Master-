@@ -1,6 +1,6 @@
 "use client";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 import Image from "next/image";
 import Accent from "@/app/components/Accent";
@@ -12,8 +12,8 @@ type HeaderProps = {
 
 export default function Header({ large = false }: HeaderProps) {
   //#region  //*=========== Route Functionality ===========
-  const router = useRouter();
-  const arrOfRoute = router.asPath ? router.asPath.split("/") : [];
+  const pathname = usePathname(); // Use pathname instead of asPath
+  const arrOfRoute = pathname ? pathname.split("/") : [];
   const baseRoute = arrOfRoute.length > 1 ? "/" + arrOfRoute[1] : "";
 
   //#endregion  //*======== Route Functionality ===========
@@ -38,6 +38,8 @@ export default function Header({ large = false }: HeaderProps) {
     React.useState<boolean>(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] =
     React.useState<boolean>(false);
+
+  const router = useRouter(); // Keep useRouter for navigation
 
   return (
     <header
