@@ -46,7 +46,7 @@ export default function ServicesLanding() {
           {/* Long grid */}
           <div className="h-96 relative">
             <Image
-              src="/images/grid1.JPG"
+              src="/images/grid1.jpg"
               alt="grid"
               layout="fill"
               objectFit="cover"
@@ -60,7 +60,7 @@ export default function ServicesLanding() {
           {/* Long grid */}
           <div className="row-span-2 h-96 mb-4 relative">
             <Image
-              src="/images/grid3.JPG"
+              src="/images/grid3.jpg"
               alt="grid"
               layout="fill"
               objectFit="cover"
