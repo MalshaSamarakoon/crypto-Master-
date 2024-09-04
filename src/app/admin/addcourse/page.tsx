@@ -1,3 +1,34 @@
+// Define the type for the course prop
+interface Course {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: string;
+  duration: string;
+  // Add other fields as needed
+}
+
+// Import necessary modules
+import Link from "next/link";
+
+// CourseCard component with course prop type annotation
+export default function CourseCard({ course }: { course: Course }) {
+  return (
+    <div>
+      <div className="bg-bg-dark relative items-center border-[2px] border-[#d9b157] pb-8 text-center text-[#002147] shadow-xl">
+        <img src={course.imageUrl} alt={course.title} />
+        <h2>{course.title}</h2>
+        <p>{course.description}</p>
+        <p>{course.price}</p>
+        <p>{course.duration}</p>
+        {/* Add other content as needed */}
+      </div>
+    </div>
+  );
+}
+
+// AddTeam component with full form implementation
 "use client";
 import clsx from "clsx";
 import { useState } from "react";
@@ -111,7 +142,7 @@ export default function AddTeam() {
 
   return (
     <main style={{ backgroundColor: "white" }}>
-      <div className=" p-40 sm:ml-64 ">
+      <div className="p-40 sm:ml-64">
         <section
           className={clsx(
             "min-h-main -mt-20 flex flex-col justify-center",
@@ -120,8 +151,8 @@ export default function AddTeam() {
         >
           <section className="relative">
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-              <div className=" py-10 ">
-                <h1 className=" "> Add Details for Course Card </h1>
+              <div className="py-10">
+                <h1>Add Details for Course Card</h1>
               </div>
               <label className="block text-sm font-medium text-dark">
                 Mode
@@ -202,8 +233,8 @@ export default function AddTeam() {
                   )}
                 </div>
               </div>
-              <div className=" py-10 ">
-                <h1 className=" "> Add Details for Course Page </h1>
+              <div className="py-10">
+                <h1>Add Details for Course Page</h1>
               </div>
               <label className="block text-sm font-medium text-dark">
                 Course Description
@@ -249,73 +280,69 @@ export default function AddTeam() {
               <label className="block text-sm font-medium text-dark">
                 Course Content
               </label>
-              <div>
+              <ul>
                 {courseContentItems.map((item, index) => (
-                  <div key={index} className="flex items-center mb-2">
-                    <p className="mr-2">{item}</p>
+                  <li key={index}>
+                    {item}{" "}
                     <button
                       type="button"
                       onClick={() => removeContentItem(index)}
-                      className="text-red-500"
                     >
                       Remove
                     </button>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
               <input
                 onChange={(e) => setNewContentItem(e.target.value)}
                 value={newContentItem}
                 className="border border-slate-500 px-8 py-2"
                 type="text"
-                placeholder="Add Content Item"
+                placeholder="New Content Item"
               />
               <button
                 type="button"
                 onClick={addContentItem}
-                className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+                className="border border-slate-500 px-8 py-2 mt-2"
               >
-                Add Item
+                Add Content Item
               </button>
               <label className="block text-sm font-medium text-dark">
-                Information
+                Information Items
               </label>
-              <div>
+              <ul>
                 {informationItems.map((item, index) => (
-                  <div key={index} className="flex items-center mb-2">
-                    <p className="mr-2">{item}</p>
+                  <li key={index}>
+                    {item}{" "}
                     <button
                       type="button"
                       onClick={() => removeInformationItem(index)}
-                      className="text-red-500"
                     >
                       Remove
                     </button>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
               <input
                 onChange={(e) => setNewInformationItem(e.target.value)}
                 value={newInformationItem}
                 className="border border-slate-500 px-8 py-2"
                 type="text"
-                placeholder="Add Information Item"
+                placeholder="New Information Item"
               />
               <button
                 type="button"
                 onClick={addInformationItem}
-                className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+                className="border border-slate-500 px-8 py-2 mt-2"
               >
-                Add Item
+                Add Information Item
               </button>
-              <div>
-                <button
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="border border-slate-500 px-8 py-2 mt-4"
+              >
+                Submit
+              </button>
             </form>
           </section>
         </section>
