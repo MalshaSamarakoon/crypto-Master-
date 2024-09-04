@@ -2,10 +2,22 @@ import React from "react";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
 
-export default function CourseCard({ course }) {
+// Define the type for the course prop
+interface Course {
+  image?: string;
+  title: string;
+  description: string;
+  mode: string;
+}
+
+interface CourseCardProps {
+  course: Course;
+}
+
+export default function CourseCard({ course }: CourseCardProps) {
   return (
     <div>
-      <div className="bg-bg-dark relative items-center  border-[2px] border-[#d9b157] pb-8 text-center text-[#002147] shadow-xl">
+      <div className="bg-bg-dark relative items-center border-[2px] border-[#d9b157] pb-8 text-center text-[#002147] shadow-xl">
         {course.image && (
           <img
             className="h-[150px] w-full object-cover object-top"
@@ -19,6 +31,7 @@ export default function CourseCard({ course }) {
         <h3 className="relative mb-5 mt-5 text-[#002147]">{course.title}</h3>
         <p className="p-4 text-[#002147] text-sm leading-[21px] mb-0">{course.description}</p>
 
+        {/* Uncomment if needed */}
         {/* <Link href={`/pages/courses/CourseDetails?_id=${course._id}`}>
           <Button
             className="absolute bottom-4 right-4 border border-amber-400 text-amber-400 hover:bg-neutral-700 dark:hover:bg-neutral-700"
