@@ -11,15 +11,18 @@ export default function LatestLanding() {
     "/images/update-1.jpg",
   ];
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isUserInteracting) {
-        if (containerRef.current.scrollLeft + containerRef.current.offsetWidth >= containerRef.current.scrollWidth) {
+      if (!isUserInteracting && containerRef.current) {
+        if (
+          containerRef.current.scrollLeft + containerRef.current.offsetWidth >=
+          containerRef.current.scrollWidth
+        ) {
           containerRef.current.scrollTo({
             left: 0,
             behavior: "smooth",
@@ -36,14 +39,16 @@ export default function LatestLanding() {
     return () => clearInterval(interval);
   }, [isUserInteracting]);
 
-  const handleMouseDown = (e) => {
-    setIsUserInteracting(true);
-    setStartX(e.pageX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (containerRef.current) {
+      setIsUserInteracting(true);
+      setStartX(e.pageX - containerRef.current.offsetLeft);
+      setScrollLeft(containerRef.current.scrollLeft);
+    }
   };
 
-  const handleMouseMove = (e) => {
-    if (!startX) return;
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!startX || !containerRef.current) return;
 
     const x = e.pageX - containerRef.current.offsetLeft;
     const walk = (x - startX) * 2; // Adjust the multiplier for the desired scrolling speed
@@ -52,21 +57,27 @@ export default function LatestLanding() {
 
   const handleMouseUp = () => {
     setIsUserInteracting(false);
-    setStartX(0);
-    setScrollLeft(containerRef.current.scrollLeft);
+    if (containerRef.current) {
+      setStartX(0);
+      setScrollLeft(containerRef.current.scrollLeft);
+    }
   };
 
   const handleMouseLeave = () => {
     handleMouseUp();
   };
 
-  const handleTouchStart = (e) => {
-    setIsUserInteracting(true);
-    handleMouseDown(e.touches[0]);
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length > 0) {
+      setIsUserInteracting(true);
+      handleMouseDown(e.touches[0] as unknown as React.MouseEvent<HTMLDivElement>);
+    }
   };
 
-  const handleTouchMove = (e) => {
-    handleMouseMove(e.touches[0]);
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length > 0) {
+      handleMouseMove(e.touches[0] as unknown as React.MouseEvent<HTMLDivElement>);
+    }
   };
 
   const handleTouchEnd = () => {
