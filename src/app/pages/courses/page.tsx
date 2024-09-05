@@ -66,7 +66,7 @@ export default function CoursesPage() {
                 className="text-black md:text-4xl md:leading-snug mb-8"
                 data-fade="2"
               >
-                Moon Education Center{" "}
+                Our Coursers
               </h1>{" "}
             </div>
           </div>
