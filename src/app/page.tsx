@@ -159,7 +159,7 @@ export default function HomePage() {
         <div className="relative content-container bg-dark ">
           <YoutubeVideo
             title="Your Video Title"
-            url="https://www.youtube.com/watch?v=q7MSBZpYw-Y"
+            url="https://www.youtube.com/watch?v=01wdaxpQuIg"
           />
         </div>
         <div className="relative content-container bg-dark">
