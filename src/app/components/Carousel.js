@@ -37,7 +37,6 @@ const Carousel = () => {
               alt={`banner${index + 1}`}
               style={{
                 width: "100vw", // Ensures full-width of the viewport
-                height: "90vh", // Full viewport height
                 objectFit: "cover", // Ensures image covers container without stretching
               }}
               loading="lazy"
