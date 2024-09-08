@@ -144,7 +144,7 @@ export default function HomePage() {
         {/* <div className="relative content-container bg-dark">
           <FeedbacksLanding />
         </div> */}
-        <div className="relative content-container bg-dark">
+        <div className="relative content-container bg-dark sm:mx-10">
           <ChooseLanding />
         </div>
         <div
