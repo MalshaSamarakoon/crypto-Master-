@@ -41,7 +41,7 @@ export default function CoursesPage() {
             style={{
               bottom: "0", // Align to the bottom of the image
               width: "70vw",
-              height: "25%", // Limit to half the height of the image
+              height: "20%", // Limit to half the height of the image
               backgroundColor: "rgba(179, 151, 125, 1)", // Beige color
               zIndex: 2, // Above the image and gradient
               clipPath: "polygon(0 0, calc(100% - 350px) 0, 100% 350px, 100% 100%, 0 100%)",
@@ -51,7 +51,7 @@ export default function CoursesPage() {
             <div
               style={{
                 position: "absolute",
-                top: "50%", // Center vertically in the beige overlay
+                top: "60%", // Center vertically in the beige overlay
                 left: "26%", // Center horizontally in the beige overlay
                 transform: "translate(-50%, -50%)", // Center the text
                 color: "#ffffff", // White text color
