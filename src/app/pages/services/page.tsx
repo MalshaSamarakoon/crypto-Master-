@@ -73,13 +73,14 @@ export default function ServicesPage() {
         </div>
         <div className="lg:mt-20 sm:mt-10 min-h-screen py-1">
           <div className="layout">
-            {/* <h1
-              style={{ color: "#01162d" }}
-              className="text-black md:text-4xl md:leading-snug mb-8"
-              data-fade="2"
-            >
-              Our Services
-            </h1> */}
+                     <h1
+  id="moon-education"
+  style={{ color: "#01162d" }}
+  className="block md:hidden text-black md:text-4xl md:leading-snug mb-8"
+  data-fade="2"
+>
+  Our Services
+</h1>
 
             <h6
               id="advices"
