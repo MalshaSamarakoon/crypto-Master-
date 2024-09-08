@@ -304,7 +304,7 @@ export default function Header({ large = false }: HeaderProps) {
           + 94 71 342 6510
         </p>
 
-        <p className="flex items-center sm:pr-8 md:pr-20 md:mb-0 text-xs whitespace-nowrap">
+        <p className="flex items-center sm:pr-4 md:pr-20 md:mb-0 text-xs whitespace-nowrap">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
