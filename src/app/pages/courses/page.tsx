@@ -73,14 +73,14 @@ export default function CoursesPage() {
         </div>
         <section className=" relative">
           <div className="layout lg:mt-20 sm:mt-10 flex min-h-screen flex-col py-1">
-            <h1
-              id="moon-education"
-              style={{ color: "#01162d" }}
-              className="text-black md:text-4xl md:leading-snug mb-8"
-              data-fade="2"
-            >
-              Our Courses
-            </h1>
+          <h1
+  id="moon-education"
+  style={{ color: "#01162d" }}
+  className="block md:hidden text-black md:text-4xl md:leading-snug mb-8"
+  data-fade="2"
+>
+  Our Courses
+</h1>
             <div></div>
             <div
               className="text-base text-neutral-800 md:text-m sm:mx-10 lg:mx-0"
