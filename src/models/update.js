@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 const updateSchema = new Schema(
   {
+    name: String,
     image: String, 
   },
   {
