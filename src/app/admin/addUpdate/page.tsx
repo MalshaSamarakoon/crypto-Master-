@@ -6,8 +6,6 @@ import useLoaded from "@/hooks/useLoaded";
 
 export default function AddUpdate() {
   const [name, setName] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [imageBase64, setImageBase64] = useState(""); // State to store base64 image
   const isLoaded = useLoaded();
   const router = useRouter();
@@ -15,8 +13,8 @@ export default function AddUpdate() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (!name || !title || !description) {
-      alert("Name, Title, and description are required.");
+    if (!name) {
+      alert("Name is required.");
       return;
     }
 
@@ -26,7 +24,7 @@ export default function AddUpdate() {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ name, title, description, image: imageBase64 }),
+        body: JSON.stringify({ name, image: imageBase64 }),
       });
 
       if (res.ok) {
@@ -56,7 +54,7 @@ export default function AddUpdate() {
   return (
     <>
       <main style={{ backgroundColor: "white" }}>
-        <div className="px-40 sm:ml-64">
+        <div className="p-40 sm:ml-64">
           <section
             className={clsx(
               "min-h-main -mt-20 flex flex-col justify-center",
@@ -65,11 +63,14 @@ export default function AddUpdate() {
           >
             <section className="relative">
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-              <div className=" py-10 ">
-                  <h1 className=" "> Add Images for Updates </h1>
+              <div className=" ">
+                  <h1 className=" "> Post an Update  </h1>
                 </div>
-                <div>
 
+                <div>
+                  <label className="block text-sm font-medium text-dark">
+                    Image
+                  </label>
                   <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-500 border-solid rounded-md">
                     <div className="space-y-1 text-center">
                       <label
@@ -108,7 +109,7 @@ export default function AddUpdate() {
                   type="submit"
                   className="h-12 w-80 mt-10 rounded-md bg-amber-500 font-bold text-white py-3 px-6 w-fit transition duration-300 ease-in-out hover:bg-amber-600"
                 >
-                  Upload
+                  Post
                 </button>
               </form>
             </section>
