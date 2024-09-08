@@ -8,7 +8,6 @@ const Carousel = () => {
     "/images/hero1.png",
     "/images/hero6.png",
     "/images/hero7.png",
-    "/images/hero8.png",
   ]);
 
   const settings = {
