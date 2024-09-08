@@ -93,7 +93,7 @@ export default function TeachingSpace() {
 
             <h6
   id="advices"
-  className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2 ml-80"
+  className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2  md:ml-80"
 >
   Physical Classes/ Courses
 </h6>
@@ -113,7 +113,7 @@ export default function TeachingSpace() {
 
             <h6
               id="advices"
-              className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2 ml-80"
+              className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2  md:ml-80"
               >
               One-day workshops / Exams / Seminars
             </h6>
@@ -131,7 +131,7 @@ export default function TeachingSpace() {
 
             <h6
               id="advices"
-              className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2 ml-80"
+              className="text-right text-lg mb-6 font-bold mt-10 bg-gradient-to-l from-[#a67d21] to-transparent text-white p-2  md:ml-80"
               >
               Online Teaching Activities
             </h6>
