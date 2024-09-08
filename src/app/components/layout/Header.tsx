@@ -99,7 +99,7 @@ export default function Header({ large = false }: HeaderProps) {
                     <div
                       className={clsx(
                         "rounded-sm py-2 transition-colors",
-                        "text-hover-gold font-medium text-black",
+                        "hover:text-[#a67d21] font-medium text-black",
                         "focus-visible:ring-primary-300 focus:outline-none focus-visible:ring",
                         "flex items-center"
                       )}
@@ -154,7 +154,7 @@ export default function Header({ large = false }: HeaderProps) {
                                 }
                               }, 100); // Adjust timing as needed
                             }}
-                            className="block px-4 py-2 text-hover-gold dark:hover:bg-gray-700"
+                            className="block px-4 py-2 hover:text-[#a67d21] dark:hover:bg-gray-700"
                           >
                             {label}
                           </UnstyledLink>
@@ -167,7 +167,7 @@ export default function Header({ large = false }: HeaderProps) {
                     <div
                       className={clsx(
                         "rounded-sm py-2 transition-colors",
-                        "text-hover-gold font-medium text-black",
+                        "hover:text-[#a67d21] font-medium text-black",
                         "focus-visible:ring-primary-300 focus:outline-none focus-visible:ring",
                         "flex items-center"
                       )}
@@ -207,7 +207,7 @@ export default function Header({ large = false }: HeaderProps) {
                         <li key={`${href}${label}`}>
                           <UnstyledLink
                             href={href}
-                            className="block px-4 py-2 text-hover-gold dark:hover:bg-gray-700"
+                            className="block px-4 py-2 hover:text-[#a67d21] dark:hover:bg-gray-700"
                           >
                             {label}
                           </UnstyledLink>
@@ -220,7 +220,7 @@ export default function Header({ large = false }: HeaderProps) {
                     <div
                       className={clsx(
                         "rounded-sm py-2 transition-colors",
-                        "text-hover-gold font-medium text-black",
+                        "hover:text-[#a67d21] font-medium text-black",
                         "focus-visible:ring-primary-300 focus:outline-none focus-visible:ring",
                         "flex items-center"
                       )}
@@ -260,7 +260,7 @@ export default function Header({ large = false }: HeaderProps) {
                         <li key={`${href}${label}`}>
                           <UnstyledLink
                             href={href}
-                            className="block px-4 py-2 text-hover-gold dark:hover:bg-gray-700"
+                            className="block px-4 py-2 hover:text-[#a67d21] dark:hover:bg-gray-700"
                           >
                             {label}
                           </UnstyledLink>
@@ -273,7 +273,7 @@ export default function Header({ large = false }: HeaderProps) {
                     href={href}
                     className={clsx(
                       "rounded-sm py-2 px-4 transition-colors",
-                      "text-hover-gold font-medium text-black",
+                      "hover:text-[#a67d21] font-medium text-black",
                       "focus-visible:ring-primary-300 focus:outline-none focus-visible:ring",
                       href === baseRoute &&
                         "!bg-primary-300/50 dark:from-primary-300 dark:to-primary-400 dark:bg-gradient-to-tr dark:bg-clip-text dark:text-transparent"
