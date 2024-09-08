@@ -6,7 +6,6 @@ import React from "react";
 const Carousel = () => {
   const [images] = React.useState([
     "/images/hero1.png",
-    "/images/hero6.png",
     "/images/hero7.png",
   ]);
 
