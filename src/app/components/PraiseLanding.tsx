@@ -4,7 +4,7 @@ export default function Praise() {
   return (
     <section className="relative">
       <div
-        style={{ backgroundColor: "#002147" }}
+        style={{ backgroundColor: "#000000" }}
         className="flex items-center justify-center md:py-2 sm:py-1 border-y border-neutral-500 text-neutral-400"
       >
         <div className="flex w-full">
