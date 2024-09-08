@@ -162,6 +162,16 @@ export default function HomePage() {
             url="https://www.youtube.com/watch?v=01wdaxpQuIg"
           />
         </div>
+          <div className="a2a_kit a2a_kit_size_32 a2a_default_style fixed bottom-12 right-12 z-20 w-16 h-16">
+              {/* WhatsApp chat button */}
+              <a
+                href="https://api.whatsapp.com/send?phone=94713426510"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/whatsapp.png" alt="WhatsApp Chat" />
+              </a>
+            </div>
         <div className="relative content-container bg-dark">
           <Footer />
         </div>
