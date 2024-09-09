@@ -7,8 +7,8 @@ const Carousel = () => {
   const [images] = React.useState([
     "/images/hero1.png",
     "/images/hero4.png",
+    "/images/hero6.JPG",
     "/images/hero7.png",
-
   ]);
 
   const settings = {
