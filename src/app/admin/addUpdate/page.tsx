@@ -19,7 +19,7 @@ export default function AddUpdate() {
     }
 
     try {
-      const res = await fetch(`${process.env.BASE_URL}/api/updates`, {
+      const res = await fetch(`/api/updates`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
